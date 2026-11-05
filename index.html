@@ -120,4 +120,6 @@ document.getElementById("all").onclick=()=>{enabled=new Set(DAYS.map((_,i)=>i));
 document.getElementById("none").onclick=()=>{enabled.clear();expanded.clear();render();syncMap(true)};
 document.getElementById("connect").onclick=()=>{const k=document.getElementById("key").value.trim();sessionStorage.setItem("paris_maps_key",k);loadGoogle(k)};
 render();const configured=PUBLIC_BROWSER_KEY||sessionStorage.getItem("paris_maps_key");if(configured){loadGoogle(configured);}else{els.error.textContent="El mapa requiere una clave de Google Maps con facturación habilitada y permiso para este sitio.";}
-</script></body></html>
+</script>
+<script src="place-details.js"></script>
+</body></html>
