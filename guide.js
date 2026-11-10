@@ -133,7 +133,7 @@ equipaje: ["Equipaje", [
 };
 
 const CHECKS = [
- ["Disneyland: entrada fechada (1 día / 2 parques)","https://www.disneylandparis.com/"],
+ ["Disneyland: entradas para el sáb 5 dic","https://www.disneylandparis.com/",true],
  ["Torre Eiffel: cima por ascensor, dom 6 a las 10:30","https://www.toureiffel.paris/en"],
  ["Sainte-Chapelle: lun 7 a las 10:00 (2 adultos + 1 gratis)","https://www.sainte-chapelle.fr/en/"],
  ["Notre-Dame: reserva gratuita opcional (abre máx. 2 días antes)","https://www.notredamedeparis.fr/visiter/reserver-gratuitement/"],
@@ -171,9 +171,9 @@ function draw(){
  TABS[state.tab][1].forEach(sec=>{
   h+='<div class="dz-land">'+esc(sec[0])+'</div>';
   if(sec[1]==="CHECK"){
-   const n=CHECKS.filter((_,i)=>state.done[i]).length;
+   const n=CHECKS.filter((c,i)=>c[2]||state.done[i]).length;
    h+='<div class="dz-note" style="margin:0 0 6px">'+n+' de '+CHECKS.length+' listos · se guarda solo en este teléfono</div>';
-   CHECKS.forEach((c,i)=>{h+='<div class="dz-row dz-prep"><label><input type="checkbox" data-gcheck="'+i+'"'+(state.done[i]?" checked":"")+'><span>'+esc(c[0])+'</span></label>'+(c[1]?'<a target="_blank" rel="noopener" href="'+c[1]+'">Abrir ↗</a>':'')+'</div>';});
+   CHECKS.forEach((c,i)=>{h+='<div class="dz-row dz-prep"><label><input type="checkbox" data-gcheck="'+i+'"'+(c[2]||state.done[i]?" checked":"")+(c[2]?" disabled":"")+'><span>'+esc(c[0])+(c[2]?' <b style="color:#2e7d4f">· Comprado</b>':'')+'</span></label>'+(c[1]?'<a target="_blank" rel="noopener" href="'+c[1]+'">Abrir ↗</a>':'')+'</div>';});
    return;
   }
   sec[1].forEach(it=>{h+='<div class="dz-row"><div class="dz-main gd-item">'+tag(it[1])+esc(it[0])+(it[2]?'<a target="_blank" rel="noopener" href="'+it[2]+'">Abrir ↗</a>':'')+'</div></div>';});
