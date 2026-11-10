@@ -114,7 +114,7 @@ const css = `
 .dz-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:16px 18px 10px;background:#2c1f5c;color:#fff}
 .dz-kicker{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#d9cbff}
 .dz-head h2{font-family:Georgia,serif;font-size:26px;margin:4px 0 0;font-weight:600}
-.dz-close{border:0;background:#fff;color:#2c1f5c;width:38px;height:38px;border-radius:50%;font-size:24px;line-height:1;flex-shrink:0}
+.dz-close{border:0;background:#fff;color:#2c1f5c;height:40px;padding:0 14px;border-radius:20px;font-size:14px;font-weight:800;line-height:1;flex-shrink:0;white-space:nowrap}
 .dz-tabs{display:flex;gap:6px;padding:0 14px 12px;background:#2c1f5c;overflow-x:auto}
 .dz-tabs button{border:1px solid #6c5aa6;background:transparent;color:#e4dcff;border-radius:20px;padding:8px 13px;font-size:12px;font-weight:700;white-space:nowrap}
 .dz-tabs button.on{background:#fff;color:#2c1f5c;border-color:#fff}
@@ -144,11 +144,14 @@ const css = `
 `;
 const style=document.createElement("style");style.textContent=css;document.head.appendChild(style);
 const shell=document.createElement("section");shell.className="dz";shell.hidden=true;shell.setAttribute("aria-label","Plan Disneyland");
-shell.innerHTML='<div class="dz-head"><div><div class="dz-kicker">Sáb. 5 dic. · Disneyland París</div><h2>Plan Disneyland</h2></div><button type="button" class="dz-close" aria-label="Volver a París">×</button></div><div class="dz-tabs"><button type="button" data-tab="rides">Atracciones</button><button type="button" data-tab="shows">Navidad y shows</button><button type="button" data-tab="prep">Preparación</button></div><div class="dz-body"></div>';
+shell.innerHTML='<div class="dz-head"><div><div class="dz-kicker">Sáb. 5 dic. · Disneyland París</div><h2>Plan Disneyland</h2></div><button type="button" class="dz-close" aria-label="Volver a París">← Volver</button></div><div class="dz-tabs"><button type="button" data-tab="rides">Atracciones</button><button type="button" data-tab="shows">Navidad y shows</button><button type="button" data-tab="prep">Preparación</button></div><div class="dz-body"></div>';
 document.body.appendChild(shell);
 const body=shell.querySelector(".dz-body");
-shell.querySelector(".dz-close").onclick=()=>{shell.hidden=true;document.body.style.overflow="";};
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!shell.hidden){shell.hidden=true;document.body.style.overflow="";}});
+function hide(){shell.hidden=true;document.body.style.overflow="";}
+// Phone back button / swipe closes the panel instead of leaving the site
+shell.querySelector(".dz-close").onclick=()=>{if(history.state&&history.state.fi==="disney")history.back();else hide();};
+window.addEventListener("popstate",()=>{if(!shell.hidden)hide();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!shell.hidden)shell.querySelector(".dz-close").click();});
 shell.querySelectorAll("[data-tab]").forEach(b=>b.onclick=()=>{state.tab=b.dataset.tab;save();draw();});
 
 function rideRow(r){
@@ -200,5 +203,5 @@ function draw(){
  body.scrollTop=y;
 }
 
-window.openDisney=()=>{shell.hidden=false;document.body.style.overflow="hidden";draw();};
+window.openDisney=()=>{if(shell.hidden)history.pushState({fi:"disney"},"");shell.hidden=false;document.body.style.overflow="hidden";draw();};
 })();
