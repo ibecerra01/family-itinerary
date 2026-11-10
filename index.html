@@ -42,6 +42,7 @@ h1{font-family:Georgia,serif;font-size:36px;font-weight:600;line-height:1.08;mar
 .map-fallback .big{font-family:Georgia,serif;font-size:34px;color:#405e71}
 .legend{display:flex;flex-wrap:wrap;gap:8px;margin:9px 0 0}.legend span{font-size:11px;color:#536f7c;background:#eff3f4;padding:6px 8px;border-radius:8px}
 .mobiletitle{display:none}
+.trip{font-size:11px;color:#8a6a4f;font-weight:700;margin-top:8px}.disneybtn{display:block;width:100%;margin:10px 0 4px;border:0;border-radius:9px;background:#5b3fa8;color:#fff;font-weight:800;font-size:13px;padding:11px}.pending{background:#fff;border:1px dashed #c9d3da;border-radius:13px;padding:16px;font-size:13px;line-height:1.55;color:#55697a}
 @media(max-width:760px){.app{display:flex;flex-direction:column}.sidebar{height:48dvh;min-height:270px;box-shadow:none;border-right:0}.header{padding:13px 16px 10px}.eyebrow{font-size:9px}h1{font-size:26px;margin:4px 0}.citybar{margin-top:9px}.sidebar-content{padding:8px 12px 15px}.dayhead{padding:9px 10px}.day{margin:6px 0}.mapwrap{height:52dvh;min-height:250px}.floating{top:8px;right:8px;padding:8px 11px;max-width:175px}.floating p{font-size:10px}.status{left:8px;right:8px;bottom:8px;padding:12px}}
 </style>
 </head>
@@ -49,9 +50,10 @@ h1{font-family:Georgia,serif;font-size:36px;font-weight:600;line-height:1.08;mar
 <div class="app">
 <aside class="sidebar">
 <div class="header">
-<div class="eyebrow">Familia · Europa 2026</div><h1>París, día a día.</h1>
-<div class="sub">4–8 diciembre · Viaje familiar<br>Hotel Le Ruisseau · Saint-Mandé</div>
-<div class="citybar"><button class="pill active">París</button><button class="pill" title="Próximamente">Múnich · próximamente</button><button class="pill" title="Próximamente">Milán · próximamente</button></div>
+<div class="eyebrow">Familia · Europa 2026</div><h1 id="cityTitle">París, día a día.</h1>
+<div class="sub" id="citySub">4–8 diciembre · Viaje familiar<br>Hotel Le Ruisseau · Saint-Mandé</div>
+<div class="trip">París 4–8 · Múnich 8–12 · Milán 12–19 · París (CDG) 19–20 dic.</div>
+<div class="citybar"><button class="pill active" data-city="paris">París</button><button class="pill" data-city="munich">Múnich</button><button class="pill" data-city="milan">Milán</button></div>
 </div>
 <div class="sidebar-content">
 <div class="sectionhead"><strong>Capas del itinerario</strong><div><button class="linkbtn" id="all">Ver todos</button><button class="linkbtn" id="none">Ocultar</button></div></div>
@@ -68,14 +70,13 @@ h1{font-family:Georgia,serif;font-size:36px;font-weight:600;line-height:1.08;mar
 // Tras restringir la clave por HTTP referrer al dominio publicado, puedes pegarla aquí
 // para que todos los visitantes vean el mapa sin tener que introducirla.
 const PUBLIC_BROWSER_KEY = "AIzaSyC62roOkTivsKOeZzqu9_FNW6Qag9Hsqcg";
-const HOTEL={name:"Le Ruisseau · Hotel",lat:48.8449,lng:2.4199};
-const DAYS=[
+const PARIS_DAYS=[
 {date:"04 DIC",title:"Llegada y compras térmicas",area:"Saint-Mandé · Montreuil",color:"#179d83",stops:[
 ["11:35","Aeropuerto CDG","Llegada, migración, equipaje y traslado al hotel.",49.0097,2.5479],
 ["14:00–15:30","Le Ruisseau","Registro, almuerzo y descanso.",48.8449,2.4199],
 ["16:00–18:30","Decathlon Porte de Montreuil","Compras de ropa térmica, guantes y calzado pendiente.",48.8537,2.4157],
 ["Noche","Le Ruisseau","Cena cerca del hotel; descansar antes de Disneyland.",48.8449,2.4199]]},
-{date:"05 DIC",title:"Disneyland París",area:"Día completo · Marne-la-Vallée",color:"#8b5bd7",stops:[
+{date:"05 DIC",title:"Disneyland París",area:"Día completo · Marne-la-Vallée",color:"#8b5bd7",disney:true,stops:[
 ["Temprano","Le Ruisseau","Salir temprano desde Saint-Mandé.",48.8449,2.4199],
 ["Día completo","Disneyland París","Disneyland Park y Disney Adventure World. Entrada fechada pendiente.",48.8701,2.7797],
 ["Noche","Le Ruisseau","Regreso al hotel después del espectáculo.",48.8449,2.4199]]},
@@ -99,21 +100,58 @@ const DAYS=[
 ["10:30–13:30","Le Ruisseau","Recoger equipaje y almuerzo ligero.",48.8449,2.4199],
 ["14:00–14:15","Salida hacia CDG","Traslado al aeropuerto. Vuelo a Múnich a las 18:20.",49.0097,2.5479]]}
 ];
-let map, infoWindow, layers=[], enabled=new Set([2]), expanded=new Set([2]), googleReady=false;
+const MUNICH_DAYS=[
+{date:"08 DIC",title:"Llegada y descanso",area:"Aeropuerto → estación central",color:"#179d83",stops:[
+["19:45","Aeropuerto de Múnich","Llegada desde París; equipaje y traslado (S-Bahn o taxi, por decidir).",48.3538,11.7861,"Munich Airport"],
+["~21:30","Hotel (Hauptbahnhof)","Registro, cena sencilla cerca del hotel o en la estación y descanso.",48.1386,11.5605,"München Hauptbahnhof"]]},
+{date:"09 DIC",title:"Centro, LEGO y Navidad",area:"Altstadt · Marienplatz",color:"#ed8a38",stops:[
+["09:30","Karlsplatz (Stachus)","Inicio tranquilo por Neuhauser y Kaufingerstraße.",48.1392,11.5654,"Karlsplatz Stachus München"],
+["10:00–10:50","LEGO Store München","Personalizar una minifigura, pared de piezas y modelos de Múnich.",48.1378,11.5727,"LEGO Store München Zentrum Kaufingerstraße 9"],
+["11:00","Glockenspiel · Marienplatz","Carillón gratuito del Nuevo Ayuntamiento (en diciembre también a las 12:00).",48.1374,11.5755,"Marienplatz München"],
+["11:30–12:30","Frauenkirche","Catedral y calles del centro, sin caminata larga.",48.1386,11.5735,"Frauenkirche München"],
+["12:30–14:00","Viktualienmarkt","Almuerzo informal y productos bávaros.",48.1351,11.5763,"Viktualienmarkt München"],
+["14:30–16:00","Himmelswerkstatt","Opcional: taller navideño gratuito (6–12 años, 90 min, sin padres). Reserva por confirmar.",48.1376,11.5761,"Neues Rathaus München"],
+["16:30","Canto en San Miguel","Canto navideño gratuito frente a la iglesia.",48.1390,11.5701,"St. Michael München"],
+["Desde 17:00","Mercado de la Residenz","Mercado protegido del viento; alternativa: Mercado Medieval de Wittelsbacherplatz.",48.1410,11.5788,"Weihnachtsdorf Residenz München"]]},
+{date:"10 DIC",title:"Deutsches Museum y Tollwood",area:"Ciencia · festival de invierno",color:"#387bcb",stops:[
+["09:30–13:30","Deutsches Museum","Kids' Kingdom (3–8 años) y dos áreas más; no intentar verlo todo.",48.1299,11.5834,"Deutsches Museum München"],
+["14:00–16:30","Eisbach","Opcional y breve si el clima acompaña; si no, pausa en el hotel.",48.1436,11.5877,"Eisbachwelle München"],
+["17:30–20:00","Tollwood","Festival de invierno en Theresienwiese: carpas, comida, música y programa infantil.",48.1316,11.5497,"Tollwood Winterfestival Theresienwiese"]]},
+{date:"11 DIC",title:"Nymphenburg, BMW y Märchenbazar",area:"Oeste → norte",color:"#c35d84",stops:[
+["10:00–12:00","Palacio de Nymphenburg","Salón principal, apartamentos reales y Galería de las Bellezas; paseo breve.",48.1583,11.5033,"Schloss Nymphenburg"],
+["14:00–15:30","BMW Welt","Exposición gratuita de autos y motos.",48.1769,11.5560,"BMW Welt München"],
+["15:30–16:30","Olympiapark","Paseo corto antes de que oscurezca.",48.1735,11.5520,"Olympiapark München"],
+["Desde 16:30","Märchenbazar","Mercado familiar en Olympiapark Sur: carpas, carrusel, cuentos y talleres.",48.1690,11.5480,"Märchenbazar Spiridon-Louis-Ring 100 München"]]},
+{date:"12 DIC",title:"Tren hacia Verona y Milán",area:"Salida por la mañana",color:"#8b5bd7",stops:[
+["08:45","Hotel (Hauptbahnhof)","Desayuno temprano y salida a pie con equipaje.",48.1386,11.5605,"München Hauptbahnhof"],
+["09:23","Tren a Verona","Salida desde München Hauptbahnhof; trayecto diurno por los Alpes.",48.1402,11.5586,"München Hauptbahnhof"]]}
+];
+const CITIES={
+paris:{title:"París, día a día.",sub:"4–8 diciembre · Viaje familiar<br>Hotel Le Ruisseau · Saint-Mandé",q:"Paris France",center:{lat:48.861,lng:2.337},zoom:12,hotel:{name:"Le Ruisseau",lat:48.8449,lng:2.4199},days:PARIS_DAYS,open:[2]},
+munich:{title:"Múnich, día a día.",sub:"8–12 diciembre · Viaje familiar · propuesta en revisión<br>Hotel junto a la estación central",q:"München Germany",center:{lat:48.142,lng:11.565},zoom:13,hotel:{name:"Hotel (Hauptbahnhof)",lat:48.1386,lng:11.5605},days:MUNICH_DAYS,open:[1]},
+milan:{title:"Milán, día a día.",sub:"12–19 diciembre · Viaje familiar<br>Apartamento · zona Cadorna",q:"Milano Italy",center:{lat:45.4683,lng:9.1755},zoom:13,hotel:{name:"Apartamento (Cadorna)",lat:45.4683,lng:9.1755},days:[],open:[]}
+};
+let city="paris",CITY=CITIES.paris,DAYS=CITY.days,HOTEL=CITY.hotel;
+let map, infoWindow, layers=[], enabled=new Set(CITY.open), expanded=new Set(CITY.open), googleReady=false;
 const els={days:document.getElementById("days"),setup:document.getElementById("setup"),error:document.getElementById("error")};
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 function pinSVG(n,color){return '<div style="width:31px;height:31px;border-radius:50%;background:'+color+';border:2px solid white;box-shadow:0 2px 9px #0003;display:flex;align-items:center;justify-content:center;color:#fff;font:700 13px system-ui">'+n+'</div>';}
-function dirUrl(stops){return "https://www.google.com/maps/dir/?api=1&origin="+encodeURIComponent(stops[0][1]+" Paris France")+"&destination="+encodeURIComponent(stops[stops.length-1][1]+" Paris France")+"&waypoints="+encodeURIComponent(stops.slice(1,-1).map(s=>s[1]+" Paris France").join("|"));}
-function placeUrl(p){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(p[1]+", France");}
-function render(){els.days.innerHTML=DAYS.map((d,i)=>'<article class="day '+(expanded.has(i)?"expanded":"")+'"><button class="dayhead" data-day="'+i+'"><span class="stripe" style="background:'+d.color+'"></span><span class="date">'+d.date+'</span><span class="daydesc"><b>'+esc(d.title)+'</b><small>'+esc(d.area)+'</small></span><span class="check '+(enabled.has(i)?"on":"")+'">'+(enabled.has(i)?"✓":"")+'</span></button><div class="stops">'+d.stops.map((p,j)=>'<button class="stop" data-focus="'+i+','+j+'"><span class="number" style="background:'+d.color+'">'+(j+1)+'</span><span><span class="stoptime">'+esc(p[0])+'</span><b>'+esc(p[1])+'</b><small>'+esc(p[2])+'</small></span></button>').join('')+'<a href="'+dirUrl(d.stops)+'" target="_blank" rel="noopener" style="display:block;margin:10px 0;color:#2a688a;font-size:12px">Abrir recorrido en Google Maps ↗</a></div></article>').join('');
+function q(p){return p[5]||(p[1]+" "+CITY.q);}
+function dirUrl(stops){return "https://www.google.com/maps/dir/?api=1&origin="+encodeURIComponent(q(stops[0]))+"&destination="+encodeURIComponent(q(stops[stops.length-1]))+"&waypoints="+encodeURIComponent(stops.slice(1,-1).map(q).join("|"));}
+function placeUrl(p){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q(p));}
+function render(){if(!DAYS.length){els.days.innerHTML='<div class="pending"><b>Pendiente de planificar</b><br>Fechas y alojamiento confirmados. Las actividades y excursiones (Como, Bérgamo, Turín o los Alpes) se añadirán cuando el plan esté decidido.</div>';return;}els.days.innerHTML=DAYS.map((d,i)=>'<article class="day '+(expanded.has(i)?"expanded":"")+'"><button class="dayhead" data-day="'+i+'"><span class="stripe" style="background:'+d.color+'"></span><span class="date">'+d.date+'</span><span class="daydesc"><b>'+esc(d.title)+'</b><small>'+esc(d.area)+'</small></span><span class="check '+(enabled.has(i)?"on":"")+'">'+(enabled.has(i)?"✓":"")+'</span></button><div class="stops">'+d.stops.map((p,j)=>'<button class="stop" data-focus="'+i+','+j+'"><span class="number" style="background:'+d.color+'">'+(j+1)+'</span><span><span class="stoptime">'+esc(p[0])+'</span><b>'+esc(p[1])+'</b><small>'+esc(p[2])+'</small></span></button>').join('')+(d.disney?'<button type="button" class="disneybtn" data-disney>★ Abrir plan Disneyland</button>':'')+'<a href="'+dirUrl(d.stops)+'" target="_blank" rel="noopener" style="display:block;margin:10px 0;color:#2a688a;font-size:12px">Abrir recorrido en Google Maps ↗</a></div></article>').join('');
 els.days.querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>{let i=Number(b.dataset.day);if(enabled.has(i)){enabled.delete(i);expanded.delete(i);}else{enabled.add(i);expanded.add(i);}render();syncMap(true);});
 els.days.querySelectorAll("[data-focus]").forEach(b=>b.onclick=()=>{let [i,j]=b.dataset.focus.split(",").map(Number);focus(i,j);});
+els.days.querySelectorAll("[data-disney]").forEach(b=>b.onclick=()=>{if(window.openDisney)window.openDisney();});
 }
 function markerFor(p,i,j,d){let marker=new google.maps.Marker({map,position:{lat:p[3],lng:p[4]},title:p[1],label:{text:String(j+1),color:"#fff",fontSize:"12px",fontWeight:"bold"},icon:{path:google.maps.SymbolPath.CIRCLE,fillColor:d.color,fillOpacity:1,strokeColor:"#fff",strokeWeight:2,scale:17},zIndex:100-i});marker.addListener("click",()=>openStop(i,j,marker));return marker;}
 function openStop(i,j,marker){const p=DAYS[i].stops[j];infoWindow.setContent('<div style="max-width:240px;font:13px/1.5 system-ui;color:#253c4b"><strong>'+esc(p[1])+'</strong><br><span style="color:#a16c48;font-weight:700">'+esc(p[0])+'</span><p>'+esc(p[2])+'</p><a target="_blank" rel="noopener" href="'+placeUrl(p)+'">Ver en Google Maps ↗</a></div>');infoWindow.open(map,marker);}
 function focus(i,j){if(!googleReady)return;const p=DAYS[i].stops[j];map.panTo({lat:p[3],lng:p[4]});map.setZoom(15);const layer=layers[i];if(layer&&layer.markers[j])openStop(i,j,layer.markers[j]);}
-function syncMap(fit){if(!googleReady)return;layers.forEach((layer,i)=>{layer.markers.forEach(m=>m.setVisible(enabled.has(i)));layer.path.setVisible(enabled.has(i));});if(fit){let bounds=new google.maps.LatLngBounds();let count=0;DAYS.forEach((d,i)=>{if(!enabled.has(i))return;d.stops.forEach(p=>{bounds.extend({lat:p[3],lng:p[4]});count++})});if(count)map.fitBounds(bounds,65);else{map.setCenter({lat:48.861, lng:2.337});map.setZoom(12)}}}
-window.initParisMap=()=>{try{map=new google.maps.Map(document.getElementById("map"),{center:{lat:48.861,lng:2.337},zoom:12,mapTypeControl:true,streetViewControl:false,fullscreenControl:true,gestureHandling:"greedy"});infoWindow=new google.maps.InfoWindow();layers=DAYS.map((d,i)=>({markers:d.stops.map((p,j)=>markerFor(p,i,j,d)),path:new google.maps.Polyline({map,path:d.stops.map(p=>({lat:p[3],lng:p[4]})),strokeColor:d.color,strokeOpacity:.85,strokeWeight:4,icons:[{icon:{path:"M 0,-1 0,1",strokeOpacity:1,scale:3},offset:"0",repeat:"20px"}]})}));googleReady=true;els.setup.style.display="none";syncMap(true);}catch(e){els.error.textContent="No se pudo inicializar el mapa: "+e.message;els.setup.style.display="block";}};
+function syncMap(fit){if(!googleReady)return;layers.forEach((layer,i)=>{layer.markers.forEach(m=>m.setVisible(enabled.has(i)));layer.path.setVisible(enabled.has(i));});if(fit){let bounds=new google.maps.LatLngBounds();let count=0;DAYS.forEach((d,i)=>{if(!enabled.has(i))return;d.stops.forEach(p=>{bounds.extend({lat:p[3],lng:p[4]});count++})});if(count)map.fitBounds(bounds,65);else{map.setCenter(CITY.center);map.setZoom(CITY.zoom)}}}
+function buildLayers(){layers.forEach(l=>{l.markers.forEach(m=>m.setMap(null));l.path.setMap(null);});layers=DAYS.map((d,i)=>({markers:d.stops.map((p,j)=>markerFor(p,i,j,d)),path:new google.maps.Polyline({map,path:d.stops.map(p=>({lat:p[3],lng:p[4]})),strokeColor:d.color,strokeOpacity:.85,strokeWeight:4,icons:[{icon:{path:"M 0,-1 0,1",strokeOpacity:1,scale:3},offset:"0",repeat:"20px"}]})}));}
+function setCity(k){city=k;CITY=CITIES[k];DAYS=CITY.days;HOTEL=CITY.hotel;enabled=new Set(CITY.open);expanded=new Set(CITY.open);document.getElementById("cityTitle").textContent=CITY.title;document.getElementById("citySub").innerHTML=CITY.sub;document.querySelectorAll("[data-city]").forEach(b=>b.classList.toggle("active",b.dataset.city===k));const det=document.getElementById("fi-detail");if(det)det.hidden=true;if(infoWindow)infoWindow.close();render();if(googleReady){buildLayers();syncMap(true);}}
+document.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>setCity(b.dataset.city));
+window.initParisMap=()=>{try{map=new google.maps.Map(document.getElementById("map"),{center:CITY.center,zoom:CITY.zoom,mapTypeControl:true,streetViewControl:false,fullscreenControl:true,gestureHandling:"greedy"});infoWindow=new google.maps.InfoWindow();buildLayers();googleReady=true;els.setup.style.display="none";syncMap(true);}catch(e){els.error.textContent="No se pudo inicializar el mapa: "+e.message;els.setup.style.display="block";}};
 function loadGoogle(key){if(!key||!/^AIza/.test(key)){els.error.textContent="Introduce una clave de Maps JavaScript API válida.";return;}els.error.textContent="Cargando Google Maps…";const s=document.createElement("script");s.src="https://maps.googleapis.com/maps/api/js?key="+encodeURIComponent(key)+"&callback=initParisMap&v=weekly";s.async=true;s.defer=true;s.onerror=()=>{els.error.textContent="No se pudo cargar Google Maps. Revisa la clave, facturación y restricciones del dominio."};document.head.appendChild(s);setTimeout(()=>{if(!googleReady)els.error.textContent="Si no aparece el mapa, revisa la consola del navegador (F12) y las restricciones HTTP referrer de Google Cloud.";},9000);}
 const mapHelp=document.getElementById("mapHelp");const helpReopen=document.getElementById("openMapHelp");document.getElementById("closeMapHelp").addEventListener("click",()=>{mapHelp.hidden=true;helpReopen.hidden=false;});helpReopen.addEventListener("click",()=>{mapHelp.hidden=false;helpReopen.hidden=true;});
 document.getElementById("all").onclick=()=>{enabled=new Set(DAYS.map((_,i)=>i));expanded=new Set(DAYS.map((_,i)=>i));render();syncMap(true)};
@@ -122,4 +160,5 @@ document.getElementById("connect").onclick=()=>{const k=document.getElementById(
 render();const configured=PUBLIC_BROWSER_KEY||sessionStorage.getItem("paris_maps_key");if(configured){loadGoogle(configured);}else{els.error.textContent="El mapa requiere una clave de Google Maps con facturación habilitada y permiso para este sitio.";}
 </script>
 <script src="place-details.js"></script>
+<script src="disney.js"></script>
 </body></html>

@@ -20,7 +20,25 @@ const PLACES = {
 "Louvre exterior":{wiki:"Louvre Pyramid",kind:"Museo · Exteriores",duration:"1 h 15 min prevista",tips:"Recorrer Cour Carrée, Cour Napoléon, la pirámide y el Arco del Carrusel. No está previsto entrar al museo.",reserve:"Exteriores sin entrada",official:"https://www.louvre.fr/en"},
 "Mercado navideño de Tullerías":{wiki:"Tuileries Garden",kind:"Mercado navideño",duration:"Tarde y noche",tips:"Puestos, comida, luces, carrusel y atracciones. Las actividades específicas y horarios deben reconfirmarse.",reserve:"Paseo libre; atracciones podrían cobrar",photoLabel:"Imagen del Jardín de las Tullerías"},
 "Marché d'Aligre":{wiki:"Marché d'Aligre",kind:"Mercado local",duration:"2 h",tips:"Recorrer la plaza y el mercado cubierto Beauvau; desayunar y probar productos locales. Verificar puestos abiertos y horarios.",reserve:"Sin entrada"},
-"Salida hacia CDG":{wiki:"Charles de Gaulle Airport",kind:"Traslado al aeropuerto",duration:"Salir 14:00–14:15",tips:"Regresar desde Saint-Mandé con equipaje y margen para el vuelo Lufthansa a Múnich, programado a las 18:20.",reserve:"Vuelo confirmado"}
+"Salida hacia CDG":{wiki:"Charles de Gaulle Airport",kind:"Traslado al aeropuerto",duration:"Salir 14:00–14:15",tips:"Regresar desde Saint-Mandé con equipaje y margen para el vuelo a Múnich de las 18:20.",reserve:"Vuelo confirmado"},
+"Aeropuerto de Múnich":{wiki:"Munich Airport",kind:"Aeropuerto",duration:"Llegada ~19:45",tips:"Decidir antes entre S-Bahn (S1 o S8, unos 40 min, confirmar) y taxi; con equipaje y cansancio después de las 20:00, el taxi puede compensar.",reserve:"Vuelo confirmado"},
+"Hotel (Hauptbahnhof)":{wiki:"München Hauptbahnhof",kind:"Hotel · estación central",duration:"Según programa",tips:"Hotel a pocos minutos a pie de la estación central. Cena sencilla cerca o en la estación.",reserve:"Alojamiento reservado",photoLabel:"Imagen de la estación, no del hotel"},
+"Karlsplatz (Stachus)":{wiki:"Karlsplatz (Munich)",kind:"Plaza · calle peatonal",duration:"30 min",tips:"Entrada a la zona peatonal de Neuhauser y Kaufingerstraße.",reserve:"Sin entrada"},
+"LEGO Store München":{wiki:"Kaufingerstraße",kind:"Tienda LEGO",duration:"50 min",tips:"Personalizar una minifigura y ver la pared de piezas. Abre a las 10:00 (verificar).",reserve:"No requiere reserva",official:"https://www.lego.com/de-de/stores/store/munchen-zentrum",photoLabel:"Imagen de la calle, no de la tienda"},
+"Glockenspiel · Marienplatz":{wiki:"Rathaus-Glockenspiel",kind:"Carillón",duration:"15 min",tips:"En diciembre suena a las 11:00 y 12:00. Llegar unos minutos antes para ver de frente el Nuevo Ayuntamiento.",reserve:"Gratis"},
+"Frauenkirche":{wiki:"Frauenkirche, Munich",kind:"Catedral",duration:"30–60 min",tips:"Combinar con calles cercanas sin alargar la caminata.",reserve:"Entrada libre (verificar)"},
+"Viktualienmarkt":{wiki:"Viktualienmarkt",kind:"Mercado",duration:"1 h 30 min",tips:"Almuerzo informal; algunos puestos cierran temprano en invierno. Probar Weißwurst antes del mediodía.",reserve:"Sin entrada"},
+"Himmelswerkstatt":{wiki:"New Town Hall (Munich)",kind:"Taller navideño infantil · opcional",duration:"90 min",tips:"Para 6–12 años, sin padres dentro; probablemente en alemán. Punto de encuentro junto al Fischbrunnen, 15 min antes.",reserve:"Reserva ~29 nov (confirmar)",photoLabel:"Imagen del Nuevo Ayuntamiento"},
+"Canto en San Miguel":{wiki:"St. Michael's Church, Munich",kind:"Canto navideño",duration:"30 min",tips:"Programado a las 16:30 del 9 de diciembre (confirmar).",reserve:"Gratis"},
+"Mercado de la Residenz":{wiki:"Munich Residenz",kind:"Mercado navideño",duration:"Tarde y noche",tips:"Patio protegido del viento, ambiente de cuentos. Alternativa: Mercado Medieval de Wittelsbacherplatz. Taza con depósito: devolverla o conservarla.",reserve:"Sin entrada",photoLabel:"Imagen de la Residenz"},
+"Deutsches Museum":{wiki:"Deutsches Museum",kind:"Museo de ciencia",duration:"4 h",tips:"Ir directo a Kids' Kingdom (3–8 años) y elegir solo dos áreas más.",reserve:"Entrada por comprar",official:"https://www.deutsches-museum.de/"},
+"Eisbach":{wiki:"Eisbach (Isar)",kind:"Surf urbano · opcional",duration:"20–30 min",tips:"Parada corta solo si el clima acompaña; si no, pausa en el hotel antes de Tollwood.",reserve:"Gratis"},
+"Tollwood":{wiki:"Theresienwiese",kind:"Festival de invierno",duration:"2 h 30 min",tips:"Carpas iluminadas, comida, música y programa infantil; la mayoría gratis.",reserve:"Sin entrada",official:"https://www.tollwood.de/",photoLabel:"Imagen de Theresienwiese"},
+"Palacio de Nymphenburg":{wiki:"Nymphenburg Palace",kind:"Palacio",duration:"2 h",tips:"Salón principal, apartamentos y Galería de las Bellezas. En invierno fuentes y pabellones cerrados. Menores de 18 entran gratis.",reserve:"Entrada con horario opcional",official:"https://www.schloss-nymphenburg.de/"},
+"BMW Welt":{wiki:"BMW Welt",kind:"Exposición",duration:"1 h 30 min",tips:"Exposición gratuita; el BMW Museum es aparte y de pago.",reserve:"Gratis"},
+"Olympiapark":{wiki:"Olympiapark, Munich",kind:"Parque",duration:"1 h",tips:"Paseo corto antes de que oscurezca (~16:20).",reserve:"Gratis"},
+"Märchenbazar":{wiki:"Olympiapark, Munich",kind:"Mercado navideño familiar",duration:"Tarde y noche",tips:"En Olympiapark Sur (Spiridon-Louis-Ring 100): carpas de circo, carrusel, cuentos, velas y comida.",reserve:"Entrada por confirmar",official:"https://maerchenbazar.de/",photoLabel:"Imagen del Olympiapark"},
+"Tren a Verona":{wiki:"München Hauptbahnhof",kind:"Tren",duration:"Salida 9:23",tips:"Desayunar temprano; la estación está a pocos minutos a pie. Cambio en Verona hacia Milán.",reserve:"Tren confirmado"}
 };
 const css = `
 .fi-detail{position:absolute;right:20px;top:75px;bottom:20px;width:min(390px,calc(100% - 40px));background:#fff;z-index:8;box-shadow:0 13px 48px rgba(17,42,63,.25);border:1px solid #e4e9ec;border-radius:18px;overflow:hidden;display:flex;flex-direction:column;font-family:Inter,system-ui,sans-serif;color:#183048}
@@ -50,6 +68,7 @@ function photoFor(title){
  .catch(()=>null);photoCache.set(title,promise);return promise;
 }
 function mapLink(p){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(p[3]+","+p[4]);}
+function backHotel(p){return "https://www.google.com/maps/dir/?api=1&origin="+encodeURIComponent(p[3]+","+p[4])+"&destination="+encodeURIComponent(HOTEL.lat+","+HOTEL.lng)+"&travelmode=transit";}
 function directions(p){return "https://www.google.com/maps/dir/?api=1&destination="+encodeURIComponent(p[3]+","+p[4]);}
 function setText(selector,value){shell.querySelector(selector).textContent=value||"";}
 function openDetail(i,j){
@@ -62,6 +81,7 @@ function openDetail(i,j){
  setText(".fi-reservation",meta.reserve||"Pendiente de confirmar");
  setText(".fi-duration","Tiempo previsto: "+(meta.duration||"Flexible"));
  let actions='<a class="fi-action primary" target="_blank" rel="noopener" href="'+directions(p)+'">Cómo llegar ↗</a><a class="fi-action" target="_blank" rel="noopener" href="'+mapLink(p)+'">Google Maps ↗</a>';
+ if(typeof HOTEL!=="undefined"&&Math.abs(p[3]-HOTEL.lat)+Math.abs(p[4]-HOTEL.lng)>0.003)actions+='<a class="fi-action" target="_blank" rel="noopener" href="'+backHotel(p)+'">Volver al hotel ↗</a>';
  if(meta.official)actions+='<a class="fi-action" target="_blank" rel="noopener" href="'+meta.official+'">Sitio oficial ↗</a>';
  shell.querySelector(".fi-actions").innerHTML=actions;
  const img=shell.querySelector(".fi-cover"),place=shell.querySelector(".fi-placeholder"),credit=shell.querySelector(".fi-photo-credit");
