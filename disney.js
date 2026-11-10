@@ -87,7 +87,7 @@ const SHOWS = [
 ];
 
 const PREP = [
-["Comprar entrada fechada · recomendación inicial: 1 día / 2 parques", OFFICIAL_SITE],
+["Entradas compradas para el sáb 5 dic ✓ · revisar si son de 1 o 2 parques", OFFICIAL_SITE],
 ["Si quieren comida con mesa, reservar ya (abre hasta 2 meses antes, web o app). Revisar también turnos de \"almuerzo\" hacia las 17:00", "https://www.disneylandparis.com/en-usd/dining/advance-table-booking"],
 ["Descargar la app Disneyland Paris y guardar en el teléfono los 2 PDF del mapa oficial", OFFICIAL_MAP],
 ["Medir la altura de la niña y descartar lo que no aplique", ""],
