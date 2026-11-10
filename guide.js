@@ -156,13 +156,17 @@ const style=document.createElement("style");
 style.textContent='.gd .dz-head,.gd .dz-tabs{background:#16324a}.gd .dz-kicker{color:#f2c9a5}.gd .dz-tabs button{border-color:#4d6b85;color:#dbe7f1}.gd .dz-tabs button.on{color:#16324a}.gd-tag{display:inline-block;font-size:10px;font-weight:800;border-radius:6px;padding:2px 6px;color:#fff;margin-right:6px;vertical-align:1px}.gd-item{font-size:13px;line-height:1.55;color:#33415a}.gd-item a{font-weight:700;color:#16324a;margin-left:4px}.gd-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.gd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.gd-tile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;background:#fff;border:1px solid #e3e0ef;border-radius:14px;padding:14px;min-height:118px;color:#16324a;box-shadow:0 2px 8px #16324a0d}.gd-tile:active{transform:scale(.98)}.gd-ico{font-size:26px;line-height:1}.gd-tt{font-size:14px;font-weight:800;line-height:1.3}.gd-sub{font-size:11px;color:#6b7a8c;font-weight:700;margin-top:auto}.gd-back{margin-bottom:10px}.gd-h{display:flex;align-items:center;gap:10px;font-family:Georgia,serif;font-size:22px;color:#16324a;margin:4px 2px 10px}.gd-h .gd-ico{font-size:28px}';
 document.head.appendChild(style);
 const shell=document.createElement("section");shell.className="dz gd";shell.hidden=true;shell.setAttribute("aria-label","Guía del viaje");
-shell.innerHTML='<div class="dz-head"><div><div class="dz-kicker">Familia · Europa 2026</div><h2>Guía del viaje</h2></div><button type="button" class="dz-close" aria-label="Cerrar guía">×</button></div><div class="dz-tabs">'+Object.keys(TABS).map(k=>'<button type="button" data-gtab="'+k+'">'+TABS[k][0]+'</button>').join("")+'</div><div class="dz-body"></div>';
+shell.innerHTML='<div class="dz-head"><div><div class="dz-kicker">Familia · Europa 2026</div><h2>Guía del viaje</h2></div><button type="button" class="dz-close" aria-label="Volver al mapa">← Mapa</button></div><div class="dz-tabs">'+Object.keys(TABS).map(k=>'<button type="button" data-gtab="'+k+'">'+TABS[k][0]+'</button>').join("")+'</div><div class="dz-body"></div>';
 document.body.appendChild(shell);
 const body=shell.querySelector(".dz-body");
 function close(){shell.hidden=true;document.body.style.overflow="";}
-shell.querySelector(".dz-close").onclick=close;
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!shell.hidden)close();});
-shell.querySelectorAll("[data-gtab]").forEach(b=>b.onclick=()=>{state.tab=b.dataset.gtab;state.sec=-1;save();draw();body.scrollTop=0;});
+// History: opening the guide and opening a topic each add one step, so the phone's back button walks back
+function goBack(){if(history.state&&String(history.state.fi||"").startsWith("guide"))history.back();else if(state.sec>=0){state.sec=-1;save();draw();}else close();}
+shell.querySelector(".dz-close").onclick=()=>{if(state.sec>=0&&history.state&&history.state.fi==="guide-sec"){history.go(-2);}else goBack();};
+window.addEventListener("popstate",()=>{if(shell.hidden)return;const f=history.state&&history.state.fi;if(f==="guide"){state.sec=-1;save();draw();body.scrollTop=0;}else if(f!=="guide-sec")close();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!shell.hidden)goBack();});
+shell.querySelectorAll("[data-gtab]").forEach(b=>b.onclick=()=>{state.tab=b.dataset.gtab;if(state.sec>=0&&history.state&&history.state.fi==="guide-sec"){history.back();return;}state.sec=-1;save();draw();body.scrollTop=0;});
+if(history.state&&history.state.fi)history.replaceState(null,"");
 
 const ICONS={"Días de traslado (horarios locales)":"✈️","Alojamiento":"🏨","Reservas y pendientes":"✅","Moverse":"🚇","Mercados y luces de Navidad":"🎄","Mercados":"🎄","Comer y beber":"☕","Avisos":"⚠️","Horarios clave":"🕘","Decisiones pendientes":"🤔","Llegada (sáb 12)":"🚆","Plan":"🗺️","Salida (sáb 19)":"🧳","Ropa":"🧥","Salud y bolso del día":"💊","Electricidad y documentos":"🔌","Apps para instalar":"📱"};
 function tag(t){const x=TAGS[t]||TAGS.s;return '<span class="gd-tag" style="background:'+x[1]+'">'+x[0]+'</span>';}
@@ -174,7 +178,7 @@ function drawTiles(){
   h+='<button type="button" class="gd-tile" data-sec="'+i+'"><span class="gd-ico">'+(ICONS[sec[0]]||"📌")+'</span><span class="gd-tt">'+esc(sec[0])+'</span><span class="gd-sub">'+sub+'</span></button>';
  });
  body.innerHTML=h+'</div>';
- body.querySelectorAll("[data-sec]").forEach(b=>b.onclick=()=>{state.sec=Number(b.dataset.sec);save();draw();body.scrollTop=0;});
+ body.querySelectorAll("[data-sec]").forEach(b=>b.onclick=()=>{state.sec=Number(b.dataset.sec);save();history.pushState({fi:"guide-sec"},"");draw();body.scrollTop=0;});
 }
 function drawSection(sec){
  let h='<button type="button" class="dz-btn gd-back" data-back>← Temas</button><div class="gd-h"><span class="gd-ico">'+(ICONS[sec[0]]||"📌")+'</span>'+esc(sec[0])+'</div>';
@@ -185,7 +189,7 @@ function drawSection(sec){
   sec[1].forEach(it=>{h+='<div class="dz-row"><div class="dz-main gd-item">'+tag(it[1])+esc(it[0])+(it[2]?'<a target="_blank" rel="noopener" href="'+it[2]+'">Abrir ↗</a>':'')+'</div></div>';});
  }
  body.innerHTML=h;
- body.querySelector("[data-back]").onclick=()=>{state.sec=-1;save();draw();body.scrollTop=0;};
+ body.querySelector("[data-back]").onclick=goBack;
  body.querySelectorAll("[data-gcheck]").forEach(c=>c.onchange=()=>{if(c.checked)state.done[c.dataset.gcheck]=true;else delete state.done[c.dataset.gcheck];save();draw();});
 }
 function draw(){
@@ -193,6 +197,6 @@ function draw(){
  const secs=TABS[state.tab][1];
  if(state.sec>=0&&secs[state.sec])drawSection(secs[state.sec]);else drawTiles();
 }
-window.openGuide=(tab)=>{if(tab&&TABS[tab])state.tab=tab;state.sec=-1;shell.hidden=false;document.body.style.overflow="hidden";draw();};
+window.openGuide=(tab)=>{if(tab&&TABS[tab])state.tab=tab;state.sec=-1;if(shell.hidden)history.pushState({fi:"guide"},"");shell.hidden=false;document.body.style.overflow="hidden";draw();};
 const btn=document.getElementById("openGuide");if(btn)btn.onclick=()=>window.openGuide(typeof city!=="undefined"&&TABS[city]?city:undefined);
 })();

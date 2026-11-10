@@ -15,6 +15,11 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 ---
 
 ### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Navigation fix after owner report ("can't come back"). Phone back button/swipe now steps back (topic → tiles → map; Disney panel → map) via history states `fi:"guide"`, `fi:"guide-sec"`, `fi:"disney"`. Close buttons are now labeled "← Mapa" (guide) and "← Volver" (Disney). Guide tiles (PR #3) are live.
+**Status:** done on branch, NOT yet merged to `main`.
+**Next / requests:** Owner: say "publica".
+
+### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Guía del viaje now shows each tab as topic tiles (icon, title, count); tapping a tile opens its tips with a "← Temas" back button. Icons live in `ICONS` in `guide.js` (keyed by section title; new sections fall back to 📌).
 **Status:** done on branch, NOT yet merged to `main`.
 **Next / requests:** Owner: say "publica" to put it live.
