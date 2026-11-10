@@ -15,6 +15,14 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 ---
 
 ### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Fact-checked the guide, Disney panel and Munich cards against official 2026 sources (IDFM/RATP, paris.fr, Notre-Dame, Tour Eiffel, Galeries Lafayette, Sainte-Chapelle, ANSM, Disneyland Paris, Malpensa Express, ATM, Paris Aéroport, CBP, easyJet, MVV, muenchen.de, Tollwood, Märchenbazar, Deutsches Museum, Nymphenburg, BMW Welt, LEGO). Retagged verified tips as Oficial with links; corrected fares (2026), Notre-Dame booking window, RER A branch warning, Disney Christmas show list, Munich hours and child fares.
+**Status:** done on branch, NOT yet merged to `main`.
+**Next / requests:**
+- Only 2 tips remain "Confirmar": Hôtel de Ville market 2026 (not in official calendar yet) and the Milan apartment checkout/luggage policy (ask the host).
+- Late November: check Disney park hours for Dec 5 (not published as of Nov 10) and update the Disney panel.
+- Unverified (left as Video/Sugerencia): Premier Access prices, LEGO Build-a-Minifigure, Disney "no pharmacy" (only first aid is documented).
+
+### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Added `guide.js` ("📘 Guía" button in header): tabs Viaje (travel days with times, hotels by area, 12-item bookings checklist), París (transport, Christmas markets and lights, food, warnings), Múnich (transport, markets with official 2026 dates, food, decisions), Milán (arrival, plan ideas, Dec 19 departure logistics), Equipaje (clothes, health, plugs, apps). Transcript tips are now in the site, each tagged by source.
 **Status:** done on branch, NOT yet merged to `main`.
 **Next / requests:**

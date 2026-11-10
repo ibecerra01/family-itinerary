@@ -75,25 +75,26 @@ const RIDES = [
 
 // Christmas entertainment (video tips + Disney announcements). Times change daily: always check the app.
 const SHOWS = [
-["Mickey's Dazzling Christmas Parade","Disneyland Park","El desfile navideño; el momento más concurrido. Llegar 30–60 min antes."],
-["Encendido del árbol de Navidad","Disneyland Park · Town Square","Al anochecer, con coro y Mickey. Hora en la app."],
-["Let's Sing Christmas","Disneyland Park","Canto navideño con Mickey, Goofy y amigos. Muy recomendado en los videos."],
-["Princess Waltz","Disneyland Park · frente al castillo","Princesas bailando; varias veces al día."],
-["A Celebration in Arendelle","Disney Adventure World · World of Frozen","Show en el fiordo frente al castillo de Arendelle."],
-["Disney Tales of Magic","Disneyland Park · castillo","Show nocturno de cierre con fuegos y proyecciones."],
-["Disney Cascade of Lights","Disney Adventure World · lago","Show nocturno con fuegos, agua y drones."],
+["Mickey's Dazzling Christmas Parade!","Disneyland Park · Navidad (oficial)","Desfile navideño, dos veces al día. El momento más concurrido: llegar 30–60 min antes."],
+["Magical Christmas Tree Lighting","Disneyland Park · Town Square · Navidad (oficial)","Encendido del árbol al anochecer. Hora en la app."],
+["Let's Sing Christmas!","Disneyland Park · Navidad (oficial)","Canto navideño con Mickey y amigos. Muy recomendado en los videos."],
+["Momentos navideños de princesas","Disneyland Park · Central Plaza y Castle Courtyard · Navidad (oficial)","Encuentros festivos con princesas; horarios en la app."],
+["Coros de Arendelle","Disney Adventure World · World of Frozen · Navidad (oficial)","Nuevo en 2026: villancicos en Arendelle."],
+["A Celebration in Arendelle","Disney Adventure World · World of Frozen · show habitual","Show en el fiordo frente al castillo de Arendelle."],
+["Disney Tales of Magic","Disneyland Park · castillo · show nocturno habitual","Cierre de la noche con fuegos y proyecciones (todo el año)."],
+["Disney Cascade of Lights","Disney Adventure World · lago · show nocturno habitual","Fuegos, agua y drones (todo el año)."],
 ["Chalets navideños de comida","Detrás del castillo, Worlds of Pixar y Adventure Way","Chocolate caliente, gofres, crepes y dulces de temporada."]
 ];
 
 const PREP = [
 ["Comprar entrada fechada · recomendación inicial: 1 día / 2 parques", OFFICIAL_SITE],
-["Si quieren comida con mesa, reservar ya (abre 60 días antes). Revisar también turnos de \"almuerzo\" hacia las 17:00", ""],
+["Si quieren comida con mesa, reservar ya (abre hasta 2 meses antes, web o app). Revisar también turnos de \"almuerzo\" hacia las 17:00", "https://www.disneylandparis.com/en-usd/dining/advance-table-booking"],
 ["Descargar la app Disneyland Paris y guardar en el teléfono los 2 PDF del mapa oficial", OFFICIAL_MAP],
 ["Medir la altura de la niña y descartar lo que no aplique", ""],
-["Premier Access: comprar \"One\" por atracción en el día solo si la espera es alta; no comprar Ultimate de entrada", ""],
-["Fotos con personajes: reservar en la app el mismo día (fila virtual gratuita)", ""],
-["Ruta desde el hotel: confirmar RER A hasta Marne-la-Vallée – Chessy en Bonjour RATP", ""],
-["Medicinas desde casa: paracetamol, ibuprofeno, pastillas para la garganta (no hay farmacia en los parques)", ""],
+["Premier Access: \"One\" se compra solo el día, en la app, con franja horaria; \"Ultimate\" antes o el día, sin franja. Comprar One solo si la espera es alta", "https://www.disneylandparis.com/en-usd/attractions/disney-premier-access"],
+["Fotos con personajes (incluido Papá Noel): fila virtual en la app el mismo día, cupos limitados", "https://www.disneylandparis.com/en-usd/faq/theme-parks/virtual-queue"],
+["Ruta: RER A desde Vincennes, solo trenes con destino Marne-la-Vallée – Chessy (no Boissy). Billete normal €2,55; niña €1,30", "https://www.ratp.fr/visiter-paris/lieux/disneyland"],
+["Medicinas desde casa: paracetamol, ibuprofeno, pastillas para la garganta. En los parques solo hay puestos de primeros auxilios; en Francia estos medicamentos se venden solo en farmacia", ""],
 ["Ropa: abrigo largo impermeable con capucha, guantes táctiles, calzado impermeable con agarre, capas", ""],
 ["Bolso del día: batería externa, snacks, agua, gel o toallitas, capturas de las entradas", ""],
 ["El día: revisar horario del parque (puede cerrar antes por eventos privados) y horarios de shows", ""]
@@ -179,7 +180,7 @@ function drawRides(){
 }
 
 function drawShows(){
- let h='<div class="dz-note">Entretenimiento navideño 2026 según anuncios y videos de viajeros: <b>los horarios cambian cada día, confirmarlos en la app</b>. Llegar 30–60 min antes a desfiles y shows populares. Un desfile en un parque y un show nocturno en el otro pueden coincidir: elegir según los horarios del día.</div>';
+ let h='<div class="dz-note">Temporada de Navidad oficial: <b>7 nov 2026 – 6 ene 2027</b>. El horario del parque para el 5 dic aún no está publicado (revisar a fines de noviembre). <b>Los horarios de shows cambian cada día: confirmarlos en la app</b>. Llegar 30–60 min antes a desfiles y shows populares. Un desfile en un parque y un show nocturno en el otro pueden coincidir: elegir según los horarios del día.</div>';
  SHOWS.forEach(s=>{h+='<div class="dz-row dz-show"><div class="dz-main"><b>'+esc(s[0])+'</b><small>'+esc(s[1])+'</small><div class="dz-txt">'+esc(s[2])+'</div></div></div>';});
  body.innerHTML=h;
 }

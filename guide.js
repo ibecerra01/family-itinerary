@@ -12,10 +12,10 @@ viaje: ["Viaje", [
  ["Días de traslado (horarios locales)", [
   ["Jue 3 · origen� 10:00 → conexión 15:16 · conexión 21:55 → París CDG 11:35 (vie 4)","o"],
   ["Mar 8 · Salir del hotel 14:00–14:15 · CDG 18:20 → Múnich 19:45","o"],
-  ["Sáb 12 · Tren Múnich Hbf 9:23 → Verona 15:01 (cambio de 61 min) → Milán 16:02 → 17:15 · primera clase, mesa para 3","o"],
+  ["Sáb 12 · Tren Múnich Hbf 9:23 → Verona 15:01 (cambio de 61 min) → Milano Centrale 16:02 → 17:15 · primera clase, mesa para 3","o"],
   ["Sáb 19 · Milán Malpensa T2 15:30 → París CDG T2D 17:05 · noche cerca de CDG","o"],
-  ["Dom 20 · CDG 13:25 → conexión 16:10 · conexión 23:49 → origen� 5:10 (lun 21)","o"],
-  ["Regreso: en conexión probablemente hay que pasar migración y volver a documentar maletas antes del vuelo a origen�","c"]]],
+  ["Dom 20 · CDG Terminal 1 (United) 13:25 → conexión 16:10 · conexión 23:49 → origen� 5:10 (lun 21)","o","https://www.parisaeroport.fr/en/passengers/flights/airlines/airline?airline=UA"],
+  ["Regreso: en conexión hay que recoger las maletas, pasar migración y aduana, y volver a documentarlas para el vuelo a origen�","o","https://help.cbp.gov/s/article/Article-1244"]]],
  ["Alojamiento", [
   ["París 4–8 · Le Ruisseau, Saint-Mandé · desayuno incluido","o"],
   ["Múnich 8–12 · hotel a pocos minutos a pie de la estación central","o"],
@@ -25,28 +25,35 @@ viaje: ["Viaje", [
 ]],
 paris: ["París", [
  ["Moverse", [
-  ["Una tarjeta Navigo Easy por persona (incluida la niña). Comprarlas en CDG al llegar; la app oficial suele no funcionar con teléfonos de fuera de Francia","v"],
-  ["Línea 1 del metro (estación Saint-Mandé, junto al hotel) va directo a Bastille, Hôtel de Ville, Louvre, Tuileries, Concorde y Champs-Élysées","c"],
-  ["Disney: RER A desde Vincennes hasta Marne-la-Vallée – Chessy, sin cambios","c"],
-  ["Tarifas 2025: metro/RER €2,50 · bus €2 · Disney €5 · aeropuerto €13 · niños con tarifa reducida","c"],
-  ["El pase semanal va de lunes a domingo: no conviene para vie–mar","v"],
+  ["Una tarjeta Navigo Easy (€2) por persona, incluida la niña; se cargan billetes sueltos o el Navigo Jour","o","https://www.iledefrance-mobilites.fr/titres-et-tarifs/supports/passe-navigo-easy"],
+  ["Comprarlas en CDG al llegar; la app oficial suele no funcionar con teléfonos de fuera de Francia","v"],
+  ["Línea 1 del metro (estación Saint-Mandé, junto al hotel) va directo a Bastille, Hôtel de Ville, Louvre-Rivoli, Tuileries, Concorde y Champs-Élysées","o","https://www.bonjour-ratp.fr/lignes-metro/ligne-1/"],
+  ["Disney: RER A desde Vincennes hasta Marne-la-Vallée – Chessy, sin cambios. Ojo: subir solo a trenes con destino Chessy (otros van a Boissy-Saint-Léger)","o","https://www.ratp.fr/visiter-paris/lieux/disneyland"],
+  ["Tarifas 2026: metro/tren/RER €2,55 (sirve también para Disney) · bus/tranvía €2,05 · aeropuerto CDG €14 · Navigo Jour €12,30","o","https://www.iledefrance-mobilites.fr/tarifs-titre-de-transport-en-commun-2026"],
+  ["Niños de 4 a 9 años: 50 % (€1,30 metro/RER, €7 aeropuerto). No hay Navigo Jour reducido","o","https://www.iledefrance-mobilites.fr/titres-et-tarifs/tarifs-reduits/enfants-4-10-ans"],
+  ["Navigo Semaine (€32,40) va de lunes a domingo: no conviene para vie–mar","o"],
   ["Validar siempre (pitido y luz verde); evitar torniquetes ya abiertos. Si un inspector multa: calma, no es obligatorio pagar en el acto","v"],
   ["Bonjour RATP: estado en vivo, vagón recomendado y número de salida. Guardar el hotel como «casa»","v","https://www.bonjour-ratp.fr/"],
   ["Taxi G7 (usa carriles de bus) mejor que Uber en hora punta (7–9 y 16–19) y para el aeropuerto con maletas","v"],
   ["Evitar trasbordos en Châtelet-Les Halles: es un laberinto","v"],
   ["Carteristas: bolso cruzado al frente, sobre todo en metro lleno","v"]]],
  ["Mercados y luces de Navidad", [
+  ["Tullerías: 14 nov 2026 – 3 ene 2027, todos los días 11:00–23:45","o","https://www.paris.fr/evenements/marches-de-noel-2026-le-calendrier-complet-126813"],
   ["Tullerías (lun 7): el más grande, con noria (de pago), atracciones y comida. Entrada libre. Día de semana al atardecer: ideal","v"],
-  ["Notre-Dame, Square René Viviani (lun 7): pequeño, artesanos franceses, castañas asadas; ahí está el árbol más antiguo de París (1601)","v"],
-  ["Hôtel de Ville: carrusel y puestos; Saint-Germain: cerca de Odéon y La Jacobine","v"],
-  ["Fechas de apertura vistas en 2025: Tullerías ~14 nov, Notre-Dame ~26 nov, Hôtel de Ville y Torre Eiffel ~4–5 dic. Confirmar 2026","c"],
+  ["Notre-Dame, Square René Viviani: 26 nov – 27 dic 2026","o","https://www.paris.fr/evenements/marches-de-noel-2026-le-calendrier-complet-126813"],
+  ["Notre-Dame (lun 7): pequeño, artesanos franceses, castañas asadas; ahí está el árbol más antiguo de París (1601)","v"],
+  ["Hôtel de Ville: no figura en el calendario oficial 2026 (en 2025 abrió el 5 dic)","c"],
+  ["Saint-Germain: mercado cerca de Odéon y La Jacobine","v"],
   ["Evitar viernes y sábado de noche en Tullerías, Opéra y el mercado de la Torre Eiffel: lleno total","v"],
   ["Muchos mercados cierran hacia las 20:00–21:00; casi todos aceptan tarjeta sin contacto","v"],
-  ["Ruta de luces gratis: Champs-Élysées (desde ~17:00), Avenue Montaigne (Dior, n.º 30), Concorde y Place Vendôme (a ~10 min a pie de Tullerías)","v"],
-  ["Galeries Lafayette (dom 6): vitrinas afuera, árbol bajo la cúpula, terraza gratis (cierra con lluvia o viento), baños y cafetería en el piso 6. Es domingo: confirmar horario","c"],
+  ["Champs-Élysées iluminados cada noche desde las 17:00 hasta medianoche (01:00 viernes y sábado); mercado navideño 22 nov – 4 ene","o","https://www.paris.fr/pages/les-champs-elysees-a-l-heure-des-illuminations-25395"],
+  ["Ruta de luces gratis: Champs-Élysées, Avenue Montaigne (Dior, n.º 30), Concorde y Place Vendôme (a ~10 min a pie de Tullerías)","v"],
+  ["Galeries Lafayette, domingo 11:00–20:00. Terraza gratis y abierta en invierno (con pista de hielo); cierra con lluvia o viento","o","https://haussmann.galerieslafayette.com/en/the-terrace-at-galeries-lafayette/"],
+  ["Galeries Lafayette (dom 6): vitrinas afuera, árbol bajo la cúpula, baños y cafetería en el piso 6","v"],
   ["Pedir reembolso de impuestos (tax free) en Galeries Lafayette con pasaporte si la compra supera el mínimo","v"],
-  ["Torre Eiffel: destella 5 min cada hora en punto al anochecer","v"],
-  ["Notre-Dame: reserva gratuita 48 h antes o el mismo día. No pagar a terceros","o","https://www.notredamedeparis.fr/en/"]]],
+  ["Torre Eiffel: destella 5 min al inicio de cada hora desde el anochecer; en invierno el último es a las 23:00","o","https://www.toureiffel.paris/fr/le-monument/illuminations"],
+  ["Notre-Dame: entrada gratis; reserva opcional solo en el sitio o la app oficial, abre como máximo 2 días antes. No pagar a terceros","o","https://www.notredamedeparis.fr/visiter/reserver-gratuitement/"],
+  ["Sainte-Chapelle: menores de 18 gratis, adultos €22, 9:00–17:00 en invierno; reservar horario también para la niña","o","https://www.sainte-chapelle.fr/visiter/informations-pratiques"]]],
  ["Comer y beber", [
   ["Chocolate caliente: Carette (Trocadéro, dom 6) · Angelina (rue de Rivoli, junto a Tullerías, lun 7) · La Jacobine (Odéon, lun 7) · Cyril Lignac","v"],
   ["En los mercados: raclette, tartiflette, crepe de Nutella y banana, gofres, castañas, vin chaud y chocolate caliente para la niña","v"],
@@ -55,19 +62,21 @@ paris: ["París", [
   ["Comer barato: supermercados tipo Franprix tienen comida lista y microondas","v"],
   ["Chocolates de regalo (Jacques Genin, Patrick Roger, À la Mère de Famille): comprarlos al final de París para que lleguen frescos","v"]]],
  ["Avisos", [
-  ["En Francia el paracetamol, ibuprofeno y pastillas para la garganta solo se venden en farmacia: traerlos de casa","v"],
+  ["En Francia el paracetamol y el ibuprofeno solo se venden en farmacia, detrás del mostrador: traerlos de casa","o","https://ansm.sante.fr/dossiers-thematiques/les-anti-inflammatoires-non-steroidiens-ains-ibuprofene-ketoprofene-acide-acetylsalicylique"],
   ["Baños públicos de pago (~€2) cerca de Notre-Dame; usar los de museos, tiendas grandes y cafés","v"]]]
 ]],
 munich: ["Múnich", [
  ["Moverse", [
-  ["Aeropuerto → estación central: S-Bahn S1 o S8 (~40 min) o taxi; decidir antes de llegar (mar 8, ~20:00)","c"],
-  ["Billetes MVV: comparar billete diario familiar vs. sencillos; confirmar tarifa infantil","c"],
+  ["Aeropuerto → Hauptbahnhof: S-Bahn S1 o S8, cada 10 min, ~40–45 min. Billete zona M–5: Airport-City-Day-Ticket o Gruppen-Tageskarte M–5 (€32,60, hasta 5 personas)","o","https://www.mvv-muenchen.de/tickets-abos-preise/airport-city-day-ticket/"],
+  ["Con maletas y cansancio después de las 20:00, el taxi es la alternativa","s"],
+  ["Desde 2026, niños de 6 a 14 años viajan gratis con la Single-Tageskarte de un adulto; menores de 6 siempre gratis","o","https://www.mvv-muenchen.de/tickets-abos-preise/single-tageskarte/"],
   ["Tren del sáb 12 sale de München Hauptbahnhof, a pocos minutos a pie del hotel","o"]]],
  ["Mercados", [
-  ["Christkindlmarkt de Marienplatz: 20 nov – 24 dic 2026","o","https://www.christkindlmarkt-muenchen.de/en/home"],
-  ["Märchenbazar: 26 nov – 28 dic 2026, Olympiapark Sur (Spiridon-Louis-Ring 100)","o","https://maerchenbazar.de/"],
-  ["Mercado de la Residenz (protegido del viento) o Mercado Medieval de Wittelsbacherplatz","s"],
-  ["Tollwood Winter Festival en Theresienwiese: mayoría de actividades gratis","o","https://www.tollwood.de/"],
+  ["Christkindlmarkt de Marienplatz: 20 nov – 24 dic 2026, lun–sáb 10–21, dom 10–20","o","https://www.christkindlmarkt-muenchen.de/en/home"],
+  ["Canto navideño frente a San Miguel: miércoles 9 dic, 16:30, ~30 min, gratis","o","https://www.christkindlmarkt-muenchen.de/en/home"],
+  ["Märchenbazar: 26 nov – 28 dic 2026, Olympiapark Sur (Spiridon-Louis-Ring 100); viernes 14–23; entrada libre","o","https://maerchenbazar.de/"],
+  ["Weihnachtsdorf de la Residenz: 16 nov – 22 dic · Mercado Medieval de Wittelsbacherplatz: 20 nov – 23 dic","o","https://www.muenchen.travel/artikel/maerkte-feste/weihnachtsmaerkte-in-muenchen"],
+  ["Tollwood en Theresienwiese: 24 nov – 23 dic 2026; lun–vie desde las 14:00; entrada libre (salvo carpas con espectáculo)","o","https://www.tollwood.de/en/besucherinformationen/"],
   ["Visitar los mercados después de las 16:00, con las luces encendidas","s"],
   ["Tazas con depósito: devolverlas o quedárselas de recuerdo","s"]]],
  ["Comer y beber", [
@@ -78,23 +87,30 @@ munich: ["Múnich", [
   ["Adultos: Glühwein, Helles, Weißbier o Radler. Feuerzangenbowle lleva más alcohol","s"],
   ["Niña: Kinderpunsch, chocolate caliente o Apfelschorle","s"],
   ["Restaurantes: Augustiner-Keller (cerca del hotel, reservar) o Schneider Bräuhaus (cerca de Marienplatz)","s"]]],
+ ["Horarios clave", [
+  ["Glockenspiel: 11:00 y 12:00","o","https://www.muenchen.de/sehenswuerdigkeiten/glockenspiel"],
+  ["LEGO Store: lun–sáb 10:00–20:00, cerrado domingo","o","https://www.lego.com/de-de/stores/store/munchen-zentrum"],
+  ["Viktualienmarkt: lun–sáb, cerrado domingo; en invierno puestos seguros 10–17","o"],
+  ["Deutsches Museum: 9–17; Kinderreich 9:00–16:30 (3–8 años); familia €40, compra online","o","https://www.deutsches-museum.de/museumsinsel/ausstellung/kinderreich"],
+  ["Nymphenburg: 10–16 en invierno; solo con entrada con horario (€10 adulto, menores gratis)","o","https://www.schloss-nymphenburg.de/deutsch/tourist/oeffn.htm"],
+  ["BMW Welt: gratis; BMW Museum €38 familia, cerrado lunes","o","https://www.bmw-welt.com/en/index.html"]]],
  ["Decisiones pendientes", [
-  ["Himmelswerkstatt: 90 min sin padres y probablemente en alemán; reserva ~29 nov","c"],
+  ["Himmelswerkstatt: gratis, 6–12 años, sin padres, no requiere idioma común. Sesiones 14:30–16:00 o 16:30–18:00. Reserva abre 10 días antes (29 nov)","o","https://www.kindermuseum-muenchen.de/"],
   ["Mercado de la Residenz o Medieval (mié 9)","s"],
   ["BMW Welt basta, salvo interés especial en el BMW Museum","s"],
   ["Elegir y reservar la cena bávara","s"]]]
 ]],
 milan: ["Milán", [
  ["Llegada (sáb 12)", [
-  ["Llegada 17:15; confirmar si es Milano Centrale","c"],
-  ["De Milano Centrale a Cadorna: metro M2 (verde), directo","s"]]],
+  ["Llegada a Milano Centrale a las 17:15","o"],
+  ["De Milano Centrale a Cadorna: metro M2 (verde), directo, sin cambios","o","https://www.atm.it/"]]],
  ["Plan", [
   ["Itinerario pendiente: Duomo, Castello Sforzesco (junto a Cadorna), Brera y mercados navideños","s"],
   ["Excursiones posibles: lago de Como, Bérgamo, Turín o los Alpes; elegir 1–2 días","s"]]],
  ["Salida (sáb 19)", [
-  ["Malpensa Express sale de Cadorna (~50 min); confirmar que el tren llegue a T2","c"],
+  ["Malpensa Express desde Cadorna llega a T2: ~43 min, cada 30 min","o","https://www.malpensaexpress.it/en/lines-and-timetable/how-to-reach-malpensa/reaching-terminal-2/"],
   ["Entrega de maletas 12:30–14:30 en Malpensa T2: tomar el tren hacia las 12:30","o"],
-  ["Check-in online de easyJet abre el 19 nov; 3 maletas de 23 kg + 1 bolso bajo el asiento por persona","o"],
+  ["Check-in online de easyJet: de 30 días a 2 h antes (desde el 19 nov); 3 maletas de 23 kg + 1 bolso bajo el asiento por persona","o"],
   ["Confirmar hora de salida del apartamento y si se pueden dejar maletas","c"]]]
 ]],
 equipaje: ["Equipaje", [
@@ -103,7 +119,7 @@ equipaje: ["Equipaje", [
   ["Guantes táctiles para usar el teléfono","v"],
   ["Calzado impermeable con buen agarre (hielo y charcos) · medias térmicas","v"]]],
  ["Salud y bolso del día", [
-  ["Medicinas: paracetamol, ibuprofeno, pastillas para la garganta, y las personales","v"],
+  ["Medicinas: paracetamol, ibuprofeno, pastillas para la garganta, y las personales (en Francia solo en farmacia)","o"],
   ["Gel o toallitas; lavarse las manos antes de comer (temporada de virus)","v"],
   ["Batería externa · snacks · botella de agua · bolso cruzado antirrobo","v"]]],
  ["Electricidad y documentos", [
@@ -120,13 +136,13 @@ const CHECKS = [
  ["Disneyland: entrada fechada (1 día / 2 parques)","https://www.disneylandparis.com/"],
  ["Torre Eiffel: cima por ascensor, dom 6 a las 10:30","https://www.toureiffel.paris/en"],
  ["Sainte-Chapelle: lun 7 a las 10:00 (2 adultos + 1 gratis)","https://www.sainte-chapelle.fr/en/"],
- ["Notre-Dame: reserva gratuita 48 h antes","https://www.notredamedeparis.fr/en/"],
+ ["Notre-Dame: reserva gratuita opcional (abre máx. 2 días antes)","https://www.notredamedeparis.fr/visiter/reserver-gratuitement/"],
  ["Disney: restaurante con mesa (opcional)",""],
  ["Comprar 3 tarjetas Navigo Easy al llegar a CDG",""],
- ["Himmelswerkstatt: reservar ~29 nov (si se decide)",""],
+ ["Himmelswerkstatt: reservar el 29 nov (si se decide)","https://www.kindermuseum-muenchen.de/"],
  ["Deutsches Museum: entradas",""],
  ["Múnich: cena bávara reservada",""],
- ["Nymphenburg: entrada con horario (opcional)",""],
+ ["Nymphenburg: entrada con horario (obligatoria si se visita)","https://www.schloss-nymphenburg.de/"],
  ["easyJet: check-in online desde el 19 nov",""],
  ["Hotel cerca de CDG para el 19 dic",""]
 ];
