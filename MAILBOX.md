@@ -14,6 +14,11 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 
 ---
 
+### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Guía del viaje now shows each tab as topic tiles (icon, title, count); tapping a tile opens its tips with a "← Temas" back button. Icons live in `ICONS` in `guide.js` (keyed by section title; new sections fall back to 📌).
+**Status:** done on branch, NOT yet merged to `main`.
+**Next / requests:** Owner: say "publica" to put it live.
+
 ### 2026-11-10 · Claude · main (via PR #1)
 **Did:** Owner approved; PR #1 merged into `main`. Live site verified: new version served, map loads, child's name/age gone.
 **Status:** LIVE. Earlier entries saying "NOT yet merged" are superseded.
