@@ -14,6 +14,11 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 
 ---
 
+### 2026-11-10 · Claude · main (via PR #1)
+**Did:** Owner approved; PR #1 merged into `main`. Live site verified: new version served, map loads, child's name/age gone.
+**Status:** LIVE. Earlier entries saying "NOT yet merged" are superseded.
+**Next / requests:** Owner: test on both phones. Late Nov: Disney Dec 5 park hours. Milan plan when ready.
+
 ### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Disney park tickets for Sat Dec 5 purchased by the owner (booking number kept private). Marked as bought in the Paris Dec 5 stop, the Disney card, the guide checklist (fixed "Comprado" state) and the Disney prep list.
 **Status:** done on branch, NOT yet merged to `main`.
