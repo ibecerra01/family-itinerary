@@ -49,7 +49,6 @@ window.GUIDE_DETAILS = {
 "Platos de invierno en bistró":"Coq au vin (pollo al vino), cassoulet (frijoles blancos con confit de pato y salchicha), choucroute (chucrut con cerdo, de Alsacia), tarte tatin (tarta de manzana caramelizada) y profiteroles con chocolate. Fuente: video «The Ultimate Paris Christmas Guide».",
 "Mercados locales":"En los mercados de barrio se come rico y barato: galette-saucisse (crepe bretona salada con salchicha), pollo rostizado, aligot (puré con queso). En Aligre hay mercado al aire libre y el mercado cubierto Beauvau.",
 "Comer barato":"Franprix o Monoprix tienen platos listos y a veces microondas: útil para una cena tranquila en el hotel. Fuente: video «3 Days in Paris with Kids».",
-"Chocolates de regalo":"Comprarlos al final de la estadía en París (8 dic) para que lleguen frescos. Jacques Genin es famoso por sus caramelos de frutas; À la Mère de Famille es la opción más accesible para cajas de regalo. Fuente: video «The Ultimate Paris Christmas Guide».",
 // ---------------- París · Avisos ----------------
 "En Francia el paracetamol":"Desde 2020 están detrás del mostrador del farmacéutico: no se venden en supermercados ni en tiendas de Disney. Las farmacias se reconocen por la cruz verde. Fuente: ANSM.",
 "Baños públicos de pago":"Las «sanisettes» de la calle son gratuitas pero a veces están ocupadas o sucias; los cafés piden consumir. Grandes almacenes y museos son la mejor opción. Fuente: video «3 Days in Paris with Kids».",
@@ -79,4 +78,161 @@ window.GUIDE_DETAILS = {
 };
 
 // id, city, name, area/day, why (our context), plus research fields filled in below
-window.GUIDE_FOOD = [];
+window.GUIDE_FOOD = [
+{
+"id": "carette",
+"city": "paris",
+"emoji": "☕",
+"name": "Carette · Trocadéro",
+"when": "Dom 6 · Trocadéro",
+"address": "4 Place du Trocadéro, 75016 Paris",
+"url": "https://paris-carette.fr/nos-magasins/place-du-trocadero/",
+"image": "https://paris-carette.fr/wp-content/uploads/2019/01/190XX1280_DEV_TROCA.jpg",
+"desc": "Salón de té desde 1927, famoso por macarons, pasteles y chocolate caliente.",
+"why": "Está frente a las fotos de Trocadéro del domingo: opción para desayuno o almuerzo si la fila es corta (plan familiar). En el video «The Ultimate Paris Christmas Guide» queda en su top 3 de chocolates por sabor y ambiente.",
+"hours": "Todos los días desde las 7:00–7:30 hasta las 23:30 (sitio oficial)."
+},
+{
+"id": "lignac",
+"city": "paris",
+"emoji": "🧁",
+"name": "La Pâtisserie Cyril Lignac · Chaillot",
+"when": "Dom 6 · cerca de Trocadéro",
+"address": "2 Rue de Chaillot, 75016 Paris",
+"url": "https://lapatisseriecyrillignac.com/en/shops",
+"image": "https://lapatisseriecyrillignac.com/img/st/9-stores_default.jpg",
+"desc": "Pastelería y chocolatería del chef Cyril Lignac; famosos sus ositos de malvavisco.",
+"why": "En el video «The Ultimate Paris Christmas Guide», uno de los autores lo elige como el mejor chocolate caliente de París: «refinado, sin pretensiones». A ~1 km de Trocadéro, para llevar.",
+"hours": "Lunes 7:00–19:00; martes a domingo 7:00–20:00 (sitio oficial)."
+},
+{
+"id": "disco",
+"city": "paris",
+"emoji": "🍔",
+"name": "Disco Burgers",
+"when": "Dom 6 · Pigalle",
+"address": "26 Rue de Douai, 75009 Paris",
+"url": "https://www.instagram.com/disco.burgers/",
+"image": "",
+"desc": "Local pequeño de hamburguesas selladas tipo sándwich, a pasos del Moulin Rouge.",
+"why": "El plan familiar lo propone como comida tardía o cena temprana al bajar de Montmartre hacia Pigalle. Es muy pequeño: conviene reservar o ir temprano.",
+"hours": "Mediodía y noche, abre domingo (según TheFork; por confirmar)."
+},
+{
+"id": "flanerie",
+"city": "paris",
+"emoji": "🍮",
+"name": "La Flânerie Notre-Dame",
+"when": "Lun 7 · junto a Notre-Dame",
+"address": "4 Rue du Cloître Notre-Dame, 75004 Paris",
+"url": "https://www.instagram.com/__laflanerie__/",
+"image": "",
+"desc": "Pequeña pastelería-café especializada en flan parisino, con bebidas calientes.",
+"why": "Parada rápida opcional del plan familiar entre Notre-Dame y el mercado navideño de Square René Viviani.",
+"hours": "Por confirmar."
+},
+{
+"id": "ptitgrec",
+"city": "paris",
+"emoji": "🥞",
+"name": "Au P'tit Grec",
+"when": "Lun 7 · Barrio Latino",
+"address": "68 Rue Mouffetard, 75005 Paris",
+"url": "https://www.auptitgrec.fr/",
+"image": "https://cdn.prod.website-files.com/65c7a05bddb7ddfd8d756534/65e346b5af43e88c4fef39a1_WhatsApp%20Image%202024-03-02%20at%2013.32.08%20(2).jpeg",
+"desc": "Crepería desde 1981: galettes y crêpes enormes y baratas; de postre, Nutella con plátano.",
+"why": "Almuerzo del lunes en el plan familiar, si la fila es razonable. Barato y rápido para comer caminando.",
+"hours": "Lunes a sábado (sitio oficial; horario exacto de Mouffetard por confirmar)."
+},
+{
+"id": "angelina",
+"city": "paris",
+"emoji": "🍫",
+"name": "Angelina · Rivoli",
+"when": "Lun 7 · junto a Tullerías",
+"address": "226 Rue de Rivoli, 75001 Paris",
+"url": "https://salon-de-the.angelina-paris.fr/en/pastry-shop/rue-de-rivoli-paris-1/",
+"image": "https://salon-de-the.angelina-paris.fr/_astro/normalized_8bQYp.jpg",
+"desc": "Salón de té Belle Époque (1903), célebre por su chocolate caliente espeso y el Mont-Blanc.",
+"why": "Queda frente a las Tullerías: encaja antes o después del mercado navideño. El video «Paris with Kids» lo recomienda para ir con niños. Suele haber fila.",
+"hours": "Todos los días desde las 8:00; cierra 19:30 (lun–jue) o 20:00 (vie–dom) (sitio oficial)."
+},
+{
+"id": "jacobine",
+"city": "paris",
+"emoji": "🥧",
+"name": "La Jacobine",
+"when": "Saint-Germain · cerrado lunes",
+"address": "59-61 Rue Saint-André des Arts, 75006 Paris",
+"url": "https://lajacobine.fr/",
+"image": "https://lajacobine.fr/wp-content/uploads/2024/06/JACOBINE-Food-7-scaled.jpg",
+"desc": "Restaurante y salón de té en un pasaje histórico: tartas, sopa de cebolla y chocolate muy espeso.",
+"why": "En el video «The Ultimate Paris Christmas Guide» es el chocolate caliente favorito de uno de los autores. Ojo: cierra los lunes, así que no sirve el lun 7; solo si se vuelve a la zona otro día.",
+"hours": "Cerrado lunes. Mar–dom, mediodía y noche (sitio oficial)."
+},
+{
+"id": "merefamille",
+"city": "paris",
+"emoji": "🎁",
+"name": "À la Mère de Famille · histórica",
+"when": "Regalos · Grands Boulevards",
+"address": "35 Rue du Faubourg Montmartre, 75009 Paris",
+"url": "https://www.lameredefamille.com/pages/store/la-boutique-historique",
+"image": "https://www.lameredefamille.com/cdn/shop/files/boutique-interieur-ALMDF-boutique-historique_Alexandre_Guirkinger.jpg?v=1758636282&width=2000",
+"desc": "La chocolatería más antigua de París (1761), con decoración de época.",
+"why": "El video la recomienda para cajas de regalo de buena calidad sin pagar precios de joyería. Comprar chocolates al final de la estadía para que lleguen frescos.",
+"hours": "Lun–sáb 9:30–20:00; dom 10:00–19:30 (sitio oficial)."
+},
+{
+"id": "genin",
+"city": "paris",
+"emoji": "🍬",
+"name": "Jacques Genin · Marais",
+"when": "Regalos · Le Marais",
+"address": "133 Rue de Turenne, 75003 Paris",
+"url": "https://jacquesgenin.fr/",
+"image": "https://cdn.sanity.io/images/yp63swce/production/f4140106b1f485ae1b2c439f58b6565b7a820160-1440x1892.jpg?rect=0,241,1440,756&w=1200&h=630",
+"desc": "Bombones, caramelos y pâtes de fruits de uno de los grandes chocolateros de París.",
+"why": "El video lo llama el mejor chocolatero de París; lo más sorprendente fue el caramelo de mango y maracuyá.",
+"hours": "Cerrado lunes; mar–dom ~11:00–19:00 (fuentes no oficiales, por confirmar)."
+},
+{
+"id": "roger",
+"city": "paris",
+"emoji": "🍫",
+"name": "Patrick Roger · Madeleine",
+"when": "Regalos · Madeleine",
+"address": "3 Place de la Madeleine, 75008 Paris",
+"url": "https://www.patrickroger.com/en/pages/boutiques/boutique-patrick-roger-paris-madeleine",
+"image": "https://www.patrickroger.com/cdn/shop/files/boutique-patrick-roger-paris-madeleine.jpg?v=1733145423&width=1500",
+"desc": "Chocolatero-escultor: bombones y grandes esculturas de chocolate en la vitrina.",
+"why": "El video lo describe como «alta costura del chocolate»; probar el cubo de praliné. Cerca de Galeries Lafayette y la Ópera (dom 6).",
+"hours": "Todos los días 11:00–19:00 (sitio oficial)."
+},
+{
+"id": "augustiner",
+"city": "munich",
+"emoji": "🍺",
+"name": "Augustiner-Keller",
+"when": "Cerca del hotel · reservar",
+"address": "Arnulfstraße 52, 80335 München",
+"url": "https://www.augustinerkeller.de/en",
+"image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/MUC_Augustinerbiergarten.jpg",
+"desc": "Taberna bávara desde 1812: cerveza Augustiner de barril de madera y cocina tradicional.",
+"why": "Opción del plan de Múnich por estar a pocos minutos a pie del hotel: ideal una noche cansados. En diciembre el jardín está cerrado; se come en los salones interiores. Reservar.",
+"hours": "Restaurante abierto en invierno; horario por confirmar. Foto: Wikimedia Commons."
+},
+{
+"id": "schneider",
+"city": "munich",
+"emoji": "🥨",
+"name": "Weisses Bräuhaus im Tal",
+"when": "Junto a Marienplatz",
+"address": "Tal 7, 80331 München",
+"url": "https://www.weisses-brauhaus-tal.de/",
+"image": "https://upload.wikimedia.org/wikipedia/commons/8/85/MUC_WeissesBr%C3%A4uhaus_2013-08.jpg",
+"desc": "Taberna histórica de la cervecería Schneider (antes «Schneider Bräuhaus»): cerveza de trigo y cocina casera.",
+"why": "Encaja después del recorrido del centro (mié 9). Desayuno de Weißwurst con Brezel y mostaza dulce de 9:00 a 12:00: la forma clásica de probarlo.",
+"hours": "Weißwurst 9:00–12:00 diario (sitio oficial); horario general por confirmar. Foto: Wikimedia Commons."
+}
+];

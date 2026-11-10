@@ -20,6 +20,8 @@
 
 - Clickable Disneyland Park map using the owner's recreated image (owner accepted public-repo risk).
 
+- Guide: dropdown details per tip and food place tiles (photos hotlinked from official sites or Wikimedia; fallback icon if a photo fails).
+
 **Sources and limits**
 - Ride facts: official Disneyland Paris "Attractions Accessibility Map" PDFs (March 2026). No Disney artwork is hosted; the panel links to the official map.
 - Default priorities are suggestions; show info and prep tips are video tips, to confirm in the official app.

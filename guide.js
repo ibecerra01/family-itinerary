@@ -55,12 +55,10 @@ paris: ["París", [
   ["Notre-Dame: entrada gratis; reserva opcional solo en el sitio o la app oficial, abre como máximo 2 días antes. No pagar a terceros","o","https://www.notredamedeparis.fr/visiter/reserver-gratuitement/"],
   ["Sainte-Chapelle: menores de 18 gratis, adultos €22, 9:00–17:00 en invierno; reservar horario también para la niña","o","https://www.sainte-chapelle.fr/visiter/informations-pratiques"]]],
  ["Comer y beber", [
-  ["Chocolate caliente: Carette (Trocadéro, dom 6) · Angelina (rue de Rivoli, junto a Tullerías, lun 7) · La Jacobine (Odéon, lun 7) · Cyril Lignac","v"],
   ["En los mercados: raclette, tartiflette, crepe de Nutella y banana, gofres, castañas, vin chaud y chocolate caliente para la niña","v"],
   ["Platos de invierno en bistró: coq au vin, cassoulet, choucroute, tarte tatin, profiteroles","v"],
   ["Mercados locales: galette-saucisse y comida casera; en Aligre (mar 8) desayuno con pan, quesos y frutas","v"],
-  ["Comer barato: supermercados tipo Franprix tienen comida lista y microondas","v"],
-  ["Chocolates de regalo (Jacques Genin, Patrick Roger, À la Mère de Famille): comprarlos al final de París para que lleguen frescos","v"]]],
+  ["Comer barato: supermercados tipo Franprix tienen comida lista y microondas","v"]]],
  ["Avisos", [
   ["En Francia el paracetamol y el ibuprofeno solo se venden en farmacia, detrás del mostrador: traerlos de casa","o","https://ansm.sante.fr/dossiers-thematiques/les-anti-inflammatoires-non-steroidiens-ains-ibuprofene-ketoprofene-acide-acetylsalicylique"],
   ["Baños públicos de pago (~€2) cerca de Notre-Dame; usar los de museos, tiendas grandes y cafés","v"]]]
@@ -85,8 +83,7 @@ munich: ["Múnich", [
   ["Käsespätzle (pasta con queso, buena opción para la niña) · Kaiserschmarrn de postre","s"],
   ["En mercados: Lebkuchen, almendras garrapiñadas, Kartoffelpuffer","s"],
   ["Adultos: Glühwein, Helles, Weißbier o Radler. Feuerzangenbowle lleva más alcohol","s"],
-  ["Niña: Kinderpunsch, chocolate caliente o Apfelschorle","s"],
-  ["Restaurantes: Augustiner-Keller (cerca del hotel, reservar) o Schneider Bräuhaus (cerca de Marienplatz)","s"]]],
+  ["Niña: Kinderpunsch, chocolate caliente o Apfelschorle","s"]]],
  ["Horarios clave", [
   ["Glockenspiel: 11:00 y 12:00","o","https://www.muenchen.de/sehenswuerdigkeiten/glockenspiel"],
   ["LEGO Store: lun–sáb 10:00–20:00, cerrado domingo","o","https://www.lego.com/de-de/stores/store/munchen-zentrum"],

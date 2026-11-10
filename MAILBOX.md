@@ -15,6 +15,14 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 ---
 
 ### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Guide tips are now dropdowns with the why/details and source (61 of 91 tips; `guide-details.js`). "Comer y beber" shows place tiles (10 Paris, 2 Munich) with official photo/site, address, why, hours and "📍 Ver dónde" (Google Maps search). Found La Jacobine is closed Mondays, so it is no longer suggested for Mon Dec 7.
+**Status:** done on branch, NOT yet merged (together with: Disney tab + PDFs, clickable Disneyland Park map, navigation and "?" fixes).
+**Next / requests:**
+- Owner reported the downloaded Disney Adventure World recreated map: its numbers do not match the official legend (e.g. #20 drawn on Tower of Terror, which is #8). Not wired. Only add it if a version matching the official PDF numbering is provided.
+- Unconfirmed in tiles: Disco Burgers and La Flânerie hours (Instagram only), Au P'tit Grec Mouffetard hours, Jacques Genin hours.
+- Owner: "publica".
+
+### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Clickable Disneyland Park map in Disney plan → "Mapas": owner's recreated map image (`assets/disneyland-park-map.webp`), 46 tap targets on the numbered circles (`DLP_PINS`, % positions; railroad stations 12/25/38 open #1). Tapping opens a ride card (priority + done); circles show status rings (gold top, purple high, green done, grey discarded). Zoom −/+, scroll/pan. Added #5 and #8 to the ride list (extra-charge).
 **Status:** done on branch, NOT yet merged (with the Disney tab, PDF links, navigation and "?" fixes).
 **Next / requests:** Owner: test on phone, then "publica". If the owner sends a recreated Disney Adventure World map, add `DAW_PINS` the same way.
