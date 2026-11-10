@@ -148,12 +148,12 @@ const CHECKS = [
 ];
 
 function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
-const state = Object.assign({tab:"viaje",done:{}}, load());
+const state = Object.assign({tab:"viaje",done:{},sec:-1}, load());
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 
 const style=document.createElement("style");
-style.textContent='.gd .dz-head,.gd .dz-tabs{background:#16324a}.gd .dz-kicker{color:#f2c9a5}.gd .dz-tabs button{border-color:#4d6b85;color:#dbe7f1}.gd .dz-tabs button.on{color:#16324a}.gd-tag{display:inline-block;font-size:10px;font-weight:800;border-radius:6px;padding:2px 6px;color:#fff;margin-right:6px;vertical-align:1px}.gd-item{font-size:13px;line-height:1.55;color:#33415a}.gd-item a{font-weight:700;color:#16324a;margin-left:4px}.gd-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}';
+style.textContent='.gd .dz-head,.gd .dz-tabs{background:#16324a}.gd .dz-kicker{color:#f2c9a5}.gd .dz-tabs button{border-color:#4d6b85;color:#dbe7f1}.gd .dz-tabs button.on{color:#16324a}.gd-tag{display:inline-block;font-size:10px;font-weight:800;border-radius:6px;padding:2px 6px;color:#fff;margin-right:6px;vertical-align:1px}.gd-item{font-size:13px;line-height:1.55;color:#33415a}.gd-item a{font-weight:700;color:#16324a;margin-left:4px}.gd-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.gd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.gd-tile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;background:#fff;border:1px solid #e3e0ef;border-radius:14px;padding:14px;min-height:118px;color:#16324a;box-shadow:0 2px 8px #16324a0d}.gd-tile:active{transform:scale(.98)}.gd-ico{font-size:26px;line-height:1}.gd-tt{font-size:14px;font-weight:800;line-height:1.3}.gd-sub{font-size:11px;color:#6b7a8c;font-weight:700;margin-top:auto}.gd-back{margin-bottom:10px}.gd-h{display:flex;align-items:center;gap:10px;font-family:Georgia,serif;font-size:22px;color:#16324a;margin:4px 2px 10px}.gd-h .gd-ico{font-size:28px}';
 document.head.appendChild(style);
 const shell=document.createElement("section");shell.className="dz gd";shell.hidden=true;shell.setAttribute("aria-label","Guía del viaje");
 shell.innerHTML='<div class="dz-head"><div><div class="dz-kicker">Familia · Europa 2026</div><h2>Guía del viaje</h2></div><button type="button" class="dz-close" aria-label="Cerrar guía">×</button></div><div class="dz-tabs">'+Object.keys(TABS).map(k=>'<button type="button" data-gtab="'+k+'">'+TABS[k][0]+'</button>').join("")+'</div><div class="dz-body"></div>';
@@ -162,25 +162,37 @@ const body=shell.querySelector(".dz-body");
 function close(){shell.hidden=true;document.body.style.overflow="";}
 shell.querySelector(".dz-close").onclick=close;
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!shell.hidden)close();});
-shell.querySelectorAll("[data-gtab]").forEach(b=>b.onclick=()=>{state.tab=b.dataset.gtab;save();draw();body.scrollTop=0;});
+shell.querySelectorAll("[data-gtab]").forEach(b=>b.onclick=()=>{state.tab=b.dataset.gtab;state.sec=-1;save();draw();body.scrollTop=0;});
 
+const ICONS={"Días de traslado (horarios locales)":"✈️","Alojamiento":"🏨","Reservas y pendientes":"✅","Moverse":"🚇","Mercados y luces de Navidad":"🎄","Mercados":"🎄","Comer y beber":"☕","Avisos":"⚠️","Horarios clave":"🕘","Decisiones pendientes":"🤔","Llegada (sáb 12)":"🚆","Plan":"🗺️","Salida (sáb 19)":"🧳","Ropa":"🧥","Salud y bolso del día":"💊","Electricidad y documentos":"🔌","Apps para instalar":"📱"};
 function tag(t){const x=TAGS[t]||TAGS.s;return '<span class="gd-tag" style="background:'+x[1]+'">'+x[0]+'</span>';}
-function draw(){
- shell.querySelectorAll("[data-gtab]").forEach(b=>b.classList.toggle("on",b.dataset.gtab===state.tab));
- let h='<div class="dz-note">Resumen del viaje: planes de la familia, reservas y consejos de videos. Etiquetas:<div class="gd-legend">'+Object.keys(TAGS).map(tag).join("")+'</div>Lo marcado <b>Confirmar</b> o <b>Video</b> no es dato oficial: verificar antes de depender de ello.</div>';
- TABS[state.tab][1].forEach(sec=>{
-  h+='<div class="dz-land">'+esc(sec[0])+'</div>';
-  if(sec[1]==="CHECK"){
-   const n=CHECKS.filter((c,i)=>c[2]||state.done[i]).length;
-   h+='<div class="dz-note" style="margin:0 0 6px">'+n+' de '+CHECKS.length+' listos · se guarda solo en este teléfono</div>';
-   CHECKS.forEach((c,i)=>{h+='<div class="dz-row dz-prep"><label><input type="checkbox" data-gcheck="'+i+'"'+(c[2]||state.done[i]?" checked":"")+(c[2]?" disabled":"")+'><span>'+esc(c[0])+(c[2]?' <b style="color:#2e7d4f">· Comprado</b>':'')+'</span></label>'+(c[1]?'<a target="_blank" rel="noopener" href="'+c[1]+'">Abrir ↗</a>':'')+'</div>';});
-   return;
-  }
-  sec[1].forEach(it=>{h+='<div class="dz-row"><div class="dz-main gd-item">'+tag(it[1])+esc(it[0])+(it[2]?'<a target="_blank" rel="noopener" href="'+it[2]+'">Abrir ↗</a>':'')+'</div></div>';});
+function checksDone(){return CHECKS.filter((c,i)=>c[2]||state.done[i]).length;}
+function drawTiles(){
+ let h='<div class="dz-note">Resumen del viaje: planes de la familia, reservas y consejos de videos. Etiquetas:<div class="gd-legend">'+Object.keys(TAGS).map(tag).join("")+'</div>Lo marcado <b>Confirmar</b> o <b>Video</b> no es dato oficial: verificar antes de depender de ello.</div><div class="gd-grid">';
+ TABS[state.tab][1].forEach((sec,i)=>{
+  const sub=sec[1]==="CHECK"?checksDone()+' de '+CHECKS.length+' listos':sec[1].length+(sec[1].length===1?' dato':' datos');
+  h+='<button type="button" class="gd-tile" data-sec="'+i+'"><span class="gd-ico">'+(ICONS[sec[0]]||"📌")+'</span><span class="gd-tt">'+esc(sec[0])+'</span><span class="gd-sub">'+sub+'</span></button>';
  });
+ body.innerHTML=h+'</div>';
+ body.querySelectorAll("[data-sec]").forEach(b=>b.onclick=()=>{state.sec=Number(b.dataset.sec);save();draw();body.scrollTop=0;});
+}
+function drawSection(sec){
+ let h='<button type="button" class="dz-btn gd-back" data-back>← Temas</button><div class="gd-h"><span class="gd-ico">'+(ICONS[sec[0]]||"📌")+'</span>'+esc(sec[0])+'</div>';
+ if(sec[1]==="CHECK"){
+  h+='<div class="dz-note" style="margin:0 0 6px">'+checksDone()+' de '+CHECKS.length+' listos · se guarda solo en este teléfono</div>';
+  CHECKS.forEach((c,i)=>{h+='<div class="dz-row dz-prep"><label><input type="checkbox" data-gcheck="'+i+'"'+(c[2]||state.done[i]?" checked":"")+(c[2]?" disabled":"")+'><span>'+esc(c[0])+(c[2]?' <b style="color:#2e7d4f">· Comprado</b>':'')+'</span></label>'+(c[1]?'<a target="_blank" rel="noopener" href="'+c[1]+'">Abrir ↗</a>':'')+'</div>';});
+ }else{
+  sec[1].forEach(it=>{h+='<div class="dz-row"><div class="dz-main gd-item">'+tag(it[1])+esc(it[0])+(it[2]?'<a target="_blank" rel="noopener" href="'+it[2]+'">Abrir ↗</a>':'')+'</div></div>';});
+ }
  body.innerHTML=h;
+ body.querySelector("[data-back]").onclick=()=>{state.sec=-1;save();draw();body.scrollTop=0;};
  body.querySelectorAll("[data-gcheck]").forEach(c=>c.onchange=()=>{if(c.checked)state.done[c.dataset.gcheck]=true;else delete state.done[c.dataset.gcheck];save();draw();});
 }
-window.openGuide=(tab)=>{if(tab&&TABS[tab])state.tab=tab;shell.hidden=false;document.body.style.overflow="hidden";draw();};
+function draw(){
+ shell.querySelectorAll("[data-gtab]").forEach(b=>b.classList.toggle("on",b.dataset.gtab===state.tab));
+ const secs=TABS[state.tab][1];
+ if(state.sec>=0&&secs[state.sec])drawSection(secs[state.sec]);else drawTiles();
+}
+window.openGuide=(tab)=>{if(tab&&TABS[tab])state.tab=tab;state.sec=-1;shell.hidden=false;document.body.style.overflow="hidden";draw();};
 const btn=document.getElementById("openGuide");if(btn)btn.onclick=()=>window.openGuide(typeof city!=="undefined"&&TABS[city]?city:undefined);
 })();

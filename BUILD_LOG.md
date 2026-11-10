@@ -14,6 +14,8 @@
 
 - Fact-check pass (2026-11-10): ~35 claims checked against official sources; tips retagged/corrected. 2 items remain to confirm.
 
+- Guide layout changed to topic tiles per tab (owner request).
+
 **Sources and limits**
 - Ride facts: official Disneyland Paris "Attractions Accessibility Map" PDFs (March 2026). No Disney artwork is hosted; the panel links to the official map.
 - Default priorities are suggestions; show info and prep tips are video tips, to confirm in the official app.
