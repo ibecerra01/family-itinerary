@@ -10,6 +10,8 @@
 - Place cards: Munich details added; new "Volver al hotel" button (Google Maps transit from stop to the city's hotel).
 - Disney plan (`disney.js`), opened from the Dec 5 card: 58 rides/shows across both parks with official map numbers, type, duration, min height and "may frighten" flags; per-ride priority (Imprescindible/Alta/Opcional/Descartado) and done checkbox; Christmas shows tab; preparation checklist. Saved in the phone's browser storage (not synced between phones).
 
+- Trip guide (`guide.js`): whole-trip summary with travel days, bookings checklist, per-city tips from the transcripts and planning docs, packing list. Source tag on every tip.
+
 **Sources and limits**
 - Ride facts: official Disneyland Paris "Attractions Accessibility Map" PDFs (March 2026). No Disney artwork is hosted; the panel links to the official map.
 - Default priorities are suggestions; show info and prep tips are video tips, to confirm in the official app.
@@ -18,7 +20,7 @@
 
 **Decisions**
 - No full file refactor, no Discover layer, no sync, no own Disney park map (out of scope for a one-day build).
-- Public site never holds booking codes, passport data, flight numbers or the apartment unit.
+- Public site never holds booking codes, passport data, flight numbers or the apartment unit. Travel times and cities are shown (owner's choice: useful on the go).
 
 **Open**
 - Milan itinerary (when planned).

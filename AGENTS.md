@@ -17,6 +17,7 @@ Plain HTML/CSS/JS, no build step. Files:
 - `index.html`: layout, styles, city data (`PARIS_DAYS`, `MUNICH_DAYS`, `CITIES`), Google Map, city tabs.
 - `place-details.js`: rich place cards (`PLACES`, keyed by stop name), "Cómo llegar" and "Volver al hotel".
 - `disney.js`: Dec 5 Disney plan (rides, shows, prep checklist; saved in browser storage).
+- `guide.js`: "Guía del viaje" panel: travel days, bookings checklist, per-city tips (transport, markets, food), packing. Every tip has a source tag: o=Oficial, v=Video, s=Sugerencia, c=Confirmar. Add new tips there.
 - Stop format: `[time, name, description, lat, lng, optionalSearchQuery]`.
 
 ## Hard rules
