@@ -24,5 +24,5 @@ Plain HTML/CSS/JS, no build step. Files:
 - **Never print, copy or replace the Google Maps key** in `index.html`. It is restricted to the published site.
 - **Public repo:** no booking codes, passport data, flight numbers, apartment unit, full names, the child's name or age.
 - **No invented facts:** opening hours, prices, show times and heights must come from an official source or be labeled "por confirmar".
-- **No Disney artwork:** do not host or copy the official park maps; link to them. Ride numbers (#) refer to the official PDFs.
+- **No Disney artwork:** do not host or copy the official park maps; link to Disney's own PDFs (`PDF_DLP`, `PDF_DAW` in `disney.js`). Ride numbers (#) refer to those PDFs and link to them.
 - Keep the UI in Spanish. Keep changes simple: no frameworks, no build tools, no backend.

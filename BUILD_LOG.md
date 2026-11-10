@@ -16,6 +16,8 @@
 
 - Guide layout changed to topic tiles per tab (owner request).
 
+- Disney tab in city bar; official park PDFs linked (not copied); ride numbers link to them.
+
 **Sources and limits**
 - Ride facts: official Disneyland Paris "Attractions Accessibility Map" PDFs (March 2026). No Disney artwork is hosted; the panel links to the official map.
 - Default priorities are suggestions; show info and prep tips are video tips, to confirm in the official app.
