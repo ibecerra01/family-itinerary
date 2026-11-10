@@ -15,6 +15,11 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 ---
 
 ### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Separate "🏰 Disney" button in the city bar (opens the Disney plan from any city). New "Mapas" tab in the Disney plan linking Disney's official March 2026 PDFs (hosted on brochure.disneylandparis.com) plus the interactive map; every ride # now opens its park's PDF. Panel tabs wrap on narrow phones.
+**Status:** done on branch, NOT yet merged to `main` (together with the navigation and "?" fixes below).
+**Next / requests:** Owner: say "publica". If Disney moves the PDFs, update `PDF_DLP` / `PDF_DAW` in `disney.js`.
+
+### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Navigation fix after owner report ("can't come back"). Phone back button/swipe now steps back (topic → tiles → map; Disney panel → map) via history states `fi:"guide"`, `fi:"guide-sec"`, `fi:"disney"`. Close buttons are now labeled "← Mapa" (guide) and "← Volver" (Disney). Guide tiles (PR #3) are live. Map help bubble and "?" moved below Google's fullscreen button (top 58–62px) so they no longer overlap.
 **Status:** done on branch, NOT yet merged to `main`.
 **Next / requests:** Owner: say "publica".

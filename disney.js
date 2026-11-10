@@ -6,6 +6,10 @@
 const KEY = "fi_disney_v1";
 const OFFICIAL_MAP = "https://www.disneylandparis.com/en-int/maps";
 const OFFICIAL_SITE = "https://www.disneylandparis.com/";
+// Official PDFs hosted by Disney (linked, never copied)
+const PDF_DLP = "https://brochure.disneylandparis.com/HCP/EN/adlp/common/data/catalogue.pdf";
+const PDF_DAW = "https://brochure.disneylandparis.com/HCP/EN/awds/common/data/catalogue.pdf";
+function pdfFor(r){return r[0][0]==="a"?PDF_DAW:PDF_DLP;}
 const TYPES = {big:["Emociones fuertes","#c75a22"],fam:["Familia","#2a7fbf"],kid:["Pequeños","#c2457f"],show:["Show / personajes","#6b52b3"]};
 const PRI = ["Imprescindible","Alta","Opcional","Descartado"];
 
@@ -89,7 +93,7 @@ const SHOWS = [
 const PREP = [
 ["Entradas compradas para el sáb 5 dic ✓ · 1 día / 2 parques: se puede pasar de un parque al otro", OFFICIAL_SITE],
 ["Si quieren comida con mesa, reservar ya (abre hasta 2 meses antes, web o app). Revisar también turnos de \"almuerzo\" hacia las 17:00", "https://www.disneylandparis.com/en-usd/dining/advance-table-booking"],
-["Descargar la app Disneyland Paris y guardar en el teléfono los 2 PDF del mapa oficial", OFFICIAL_MAP],
+["Descargar la app Disneyland Paris y guardar en el teléfono los 2 PDF del mapa oficial (pestaña Mapas)", PDF_DLP],
 ["Medir la altura de la niña y descartar lo que no aplique", ""],
 ["Premier Access: \"One\" se compra solo el día, en la app, con franja horaria; \"Ultimate\" antes o el día, sin franja. Comprar One solo si la espera es alta", "https://www.disneylandparis.com/en-usd/attractions/disney-premier-access"],
 ["Fotos con personajes (incluido Papá Noel): fila virtual en la app el mismo día, cupos limitados", "https://www.disneylandparis.com/en-usd/faq/theme-parks/virtual-queue"],
@@ -103,6 +107,7 @@ const PREP = [
 // ---------------- State ----------------
 function load(){try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};}}
 const state = Object.assign({pri:{},done:{},prep:{},onlyTop:false,tab:"rides"}, load());
+const tabBtn=document.getElementById("openDisneyTab");
 function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
 function pri(r){return state.pri[r[0]]||r[8];}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
@@ -115,7 +120,7 @@ const css = `
 .dz-kicker{font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#d9cbff}
 .dz-head h2{font-family:Georgia,serif;font-size:26px;margin:4px 0 0;font-weight:600}
 .dz-close{border:0;background:#fff;color:#2c1f5c;height:40px;padding:0 14px;border-radius:20px;font-size:14px;font-weight:800;line-height:1;flex-shrink:0;white-space:nowrap}
-.dz-tabs{display:flex;gap:6px;padding:0 14px 12px;background:#2c1f5c;overflow-x:auto}
+.dz-tabs{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 12px;background:#2c1f5c}
 .dz-tabs button{border:1px solid #6c5aa6;background:transparent;color:#e4dcff;border-radius:20px;padding:8px 13px;font-size:12px;font-weight:700;white-space:nowrap}
 .dz-tabs button.on{background:#fff;color:#2c1f5c;border-color:#fff}
 .dz-body{flex:1;overflow-y:auto;padding:14px 14px 40px;max-width:820px;width:100%;margin:0 auto}
@@ -130,21 +135,21 @@ const css = `
 .dz-row input[type=checkbox]{width:22px;height:22px;margin:2px 0 0;flex-shrink:0;accent-color:#3d3270}
 .dz-main{flex:1;min-width:0}
 .dz-name{font-size:14px;font-weight:700;line-height:1.3}
-.dz-num{display:inline-block;min-width:30px;font-size:11px;font-weight:800;color:#fff;background:#3d3270;border-radius:6px;padding:2px 5px;margin-right:5px;text-align:center}
+.dz-num{text-decoration:none;display:inline-block;min-width:30px;font-size:11px;font-weight:800;color:#fff;background:#3d3270;border-radius:6px;padding:2px 5px;margin-right:5px;text-align:center}
 .dz-meta{font-size:11px;color:#69718a;margin-top:4px;line-height:1.5}
 .dz-type{font-weight:800}
 .dz-warn{color:#a25a00;font-weight:700}
 .dz-txt{font-size:12px;color:#4b546c;margin-top:4px;line-height:1.5}
 .dz-row select{border:1px solid #cbc3e6;border-radius:8px;padding:7px 4px;font-size:12px;background:#fff;color:#2c1f5c;max-width:118px;flex-shrink:0}
 .dz-row select.p0{background:#3d3270;color:#fff}.dz-row select.p1{background:#e9e3fb}
-.dz-show b{font-size:14px}.dz-show small{display:block;font-size:11px;color:#6b5fa0;font-weight:700;margin:2px 0 4px}
+.dz-map{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e3e0ef;border-radius:14px;padding:16px;margin:10px 0;text-decoration:none;color:#2c1f5c}.dz-map b{display:block;font-size:16px}.dz-map small{display:block;font-size:12px;color:#69718a;margin-top:3px;line-height:1.4}.dz-map-ico{font-size:30px}.dz-map-go{margin-left:auto;font-size:12px;font-weight:800;white-space:nowrap;color:#3d3270}.dz-show b{font-size:14px}.dz-show small{display:block;font-size:11px;color:#6b5fa0;font-weight:700;margin:2px 0 4px}
 .dz-prep label{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.5;cursor:pointer;flex:1}
 .dz-prep a{font-size:12px;font-weight:700;color:#3d3270;white-space:nowrap}
 @media(max-width:760px){.dz-head h2{font-size:22px}.dz-row select{max-width:104px}}
 `;
 const style=document.createElement("style");style.textContent=css;document.head.appendChild(style);
 const shell=document.createElement("section");shell.className="dz";shell.hidden=true;shell.setAttribute("aria-label","Plan Disneyland");
-shell.innerHTML='<div class="dz-head"><div><div class="dz-kicker">Sáb. 5 dic. · Disneyland París</div><h2>Plan Disneyland</h2></div><button type="button" class="dz-close" aria-label="Volver a París">← Volver</button></div><div class="dz-tabs"><button type="button" data-tab="rides">Atracciones</button><button type="button" data-tab="shows">Navidad y shows</button><button type="button" data-tab="prep">Preparación</button></div><div class="dz-body"></div>';
+shell.innerHTML='<div class="dz-head"><div><div class="dz-kicker">Sáb. 5 dic. · Disneyland París</div><h2>Plan Disneyland</h2></div><button type="button" class="dz-close" aria-label="Volver a París">← Volver</button></div><div class="dz-tabs"><button type="button" data-tab="rides">Atracciones</button><button type="button" data-tab="shows">Navidad y shows</button><button type="button" data-tab="maps">Mapas</button><button type="button" data-tab="prep">Preparación</button></div><div class="dz-body"></div>';
 document.body.appendChild(shell);
 const body=shell.querySelector(".dz-body");
 function hide(){shell.hidden=true;document.body.style.overflow="";}
@@ -161,14 +166,14 @@ function rideRow(r){
  if(r[6])meta.push("Altura: "+esc(r[6]));
  if(r[7])meta.push('<span class="dz-warn">⚠ puede asustar</span>');
  const opts=PRI.map((x,k)=>'<option value="'+x+'"'+(x===p?" selected":"")+'>'+x+'</option>').join("");
- return '<div class="dz-row'+(done?" done":"")+'"><input type="checkbox" data-done="'+r[0]+'"'+(done?" checked":"")+' aria-label="Hecho: '+esc(r[2])+'"><div class="dz-main"><div class="dz-name"><span class="dz-num">#'+r[1]+'</span>'+esc(r[2])+'</div><div class="dz-meta">'+meta.join(" · ")+'</div><div class="dz-txt">'+esc(r[9])+'</div></div><select data-pri="'+r[0]+'" class="p'+PRI.indexOf(p)+'" aria-label="Prioridad">'+opts+'</select></div>';
+ return '<div class="dz-row'+(done?" done":"")+'"><input type="checkbox" data-done="'+r[0]+'"'+(done?" checked":"")+' aria-label="Hecho: '+esc(r[2])+'"><div class="dz-main"><div class="dz-name"><a class="dz-num" target="_blank" rel="noopener" href="'+pdfFor(r)+'" title="Abrir mapa oficial del parque">#'+r[1]+'</a>'+esc(r[2])+'</div><div class="dz-meta">'+meta.join(" · ")+'</div><div class="dz-txt">'+esc(r[9])+'</div></div><select data-pri="'+r[0]+'" class="p'+PRI.indexOf(p)+'" aria-label="Prioridad">'+opts+'</select></div>';
 }
 
 function drawRides(){
  const top=RIDES.filter(r=>pri(r)==="Imprescindible").length,high=RIDES.filter(r=>pri(r)==="Alta").length;
  const done=RIDES.filter(r=>state.done[r[0]]).length;
- let h='<div class="dz-note">Los números <b>#</b> son los del mapa oficial de cada parque (versión marzo 2026): búsquenlos en el PDF o en la app. Alturas y avisos según ese mapa. Prioridades y marcas se guardan solo en este teléfono. Las prioridades iniciales son sugerencias: ajústenlas en familia.<br><b>Alturas mínimas:</b> 1,02 m (Big Thunder, Star Tours, Tower of Terror) · 1,07 m (Crush) · 1,20 m (Hyperspace, RC Racer, Flight Force) · 1,40 m (Indiana Jones).</div>';
- h+='<div class="dz-bar"><div class="dz-sum">'+top+' imprescindibles · '+high+' altas · '+done+' hechas</div><button type="button" class="dz-btn'+(state.onlyTop?" on":"")+'" data-only>Solo prioridades</button><a class="dz-btn" target="_blank" rel="noopener" href="'+OFFICIAL_MAP+'">Mapa oficial ↗</a></div>';
+ let h='<div class="dz-note">Los números <b>#</b> son los del mapa oficial de cada parque (versión marzo 2026): <b>toquen el número para abrir el mapa PDF</b> de ese parque. Alturas y avisos según ese mapa. Prioridades y marcas se guardan solo en este teléfono. Las prioridades iniciales son sugerencias: ajústenlas en familia.<br><b>Alturas mínimas:</b> 1,02 m (Big Thunder, Star Tours, Tower of Terror) · 1,07 m (Crush) · 1,20 m (Hyperspace, RC Racer, Flight Force) · 1,40 m (Indiana Jones).</div>';
+ h+='<div class="dz-bar"><div class="dz-sum">'+top+' imprescindibles · '+high+' altas · '+done+' hechas</div><button type="button" class="dz-btn'+(state.onlyTop?" on":"")+'" data-only>Solo prioridades</button><button type="button" class="dz-btn" data-tab-go="maps">🗺️ Mapas</button></div>';
  let land="";
  RIDES.forEach(r=>{
   const p=pri(r);
@@ -178,6 +183,7 @@ function drawRides(){
  });
  body.innerHTML=h;
  body.querySelector("[data-only]").onclick=()=>{state.onlyTop=!state.onlyTop;save();draw();};
+ body.querySelector("[data-tab-go]").onclick=()=>{state.tab="maps";save();draw();body.scrollTop=0;};
  body.querySelectorAll("[data-done]").forEach(c=>c.onchange=()=>{if(c.checked)state.done[c.dataset.done]=true;else delete state.done[c.dataset.done];save();draw();});
  body.querySelectorAll("[data-pri]").forEach(s=>s.onchange=()=>{state.pri[s.dataset.pri]=s.value;save();draw();});
 }
@@ -196,12 +202,20 @@ function drawPrep(){
  body.querySelectorAll("[data-prep]").forEach(c=>c.onchange=()=>{if(c.checked)state.prep[c.dataset.prep]=true;else delete state.prep[c.dataset.prep];save();draw();});
 }
 
+function drawMaps(){
+ const card=(t,sub,href)=>'<a class="dz-map" target="_blank" rel="noopener" href="'+href+'"><span class="dz-map-ico">🗺️</span><span><b>'+t+'</b><small>'+sub+'</small></span><span class="dz-map-go">Abrir ↗</span></a>';
+ body.innerHTML='<div class="dz-note">Mapas oficiales de Disneyland Paris (PDF de Disney, versión marzo 2026). Los números coinciden con la lista de Atracciones. Consejo: ábranlos una vez y guárdenlos en el teléfono para verlos sin conexión dentro del parque.</div>'
+  +card("Disneyland Park","Castillo · Main Street · Fantasyland · Adventureland · Frontierland · Discoveryland",PDF_DLP)
+  +card("Disney Adventure World","World of Frozen · Worlds of Pixar · Avengers Campus · Adventure Way",PDF_DAW)
+  +card("Mapa interactivo oficial","Web de Disneyland Paris; horarios y tiempos de espera están en la app",OFFICIAL_MAP);
+}
 function draw(){
  shell.querySelectorAll("[data-tab]").forEach(b=>b.classList.toggle("on",b.dataset.tab===state.tab));
  const y=body.scrollTop;
- if(state.tab==="shows")drawShows();else if(state.tab==="prep")drawPrep();else drawRides();
+ if(state.tab==="shows")drawShows();else if(state.tab==="prep")drawPrep();else if(state.tab==="maps")drawMaps();else drawRides();
  body.scrollTop=y;
 }
 
+if(tabBtn)tabBtn.onclick=()=>window.openDisney();
 window.openDisney=()=>{if(shell.hidden)history.pushState({fi:"disney"},"");shell.hidden=false;document.body.style.overflow="hidden";draw();};
 })();
