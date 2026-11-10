@@ -24,5 +24,5 @@ Plain HTML/CSS/JS, no build step. Files:
 - **Never print, copy or replace the Google Maps key** in `index.html`. It is restricted to the published site.
 - **Public repo:** no booking codes, passport data, flight numbers, apartment unit, full names, the child's name or age.
 - **No invented facts:** opening hours, prices, show times and heights must come from an official source or be labeled "por confirmar".
-- **No Disney artwork:** do not host or copy the official park maps; link to Disney's own PDFs (`PDF_DLP`, `PDF_DAW` in `disney.js`). Ride numbers (#) refer to those PDFs and link to them.
+- **No Disney artwork:** do not host or copy the official park maps; link to Disney's own PDFs (`PDF_DLP`, `PDF_DAW` in `disney.js`). Ride numbers (#) refer to those PDFs and link to them. **Owner exception (2026-11-10):** `assets/disneyland-park-map.webp` is the owner's own recreated map, published at the owner's request; pins in `DLP_PINS` (disney.js) are % positions on that image. Do not add other Disney artwork without the owner's OK.
 - Keep the UI in Spanish. Keep changes simple: no frameworks, no build tools, no backend.
