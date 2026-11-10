@@ -15,6 +15,11 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 ---
 
 ### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Clickable Disneyland Park map in Disney plan → "Mapas": owner's recreated map image (`assets/disneyland-park-map.webp`), 46 tap targets on the numbered circles (`DLP_PINS`, % positions; railroad stations 12/25/38 open #1). Tapping opens a ride card (priority + done); circles show status rings (gold top, purple high, green done, grey discarded). Zoom −/+, scroll/pan. Added #5 and #8 to the ride list (extra-charge).
+**Status:** done on branch, NOT yet merged (with the Disney tab, PDF links, navigation and "?" fixes).
+**Next / requests:** Owner: test on phone, then "publica". If the owner sends a recreated Disney Adventure World map, add `DAW_PINS` the same way.
+
+### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Separate "🏰 Disney" button in the city bar (opens the Disney plan from any city). New "Mapas" tab in the Disney plan linking Disney's official March 2026 PDFs (hosted on brochure.disneylandparis.com) plus the interactive map; every ride # now opens its park's PDF. Panel tabs wrap on narrow phones.
 **Status:** done on branch, NOT yet merged to `main` (together with the navigation and "?" fixes below).
 **Next / requests:** Owner: say "publica". If Disney moves the PDFs, update `PDF_DLP` / `PDF_DAW` in `disney.js`.
