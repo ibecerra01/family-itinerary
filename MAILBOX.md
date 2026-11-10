@@ -17,7 +17,7 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 ### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Disney park tickets for Sat Dec 5 purchased by the owner (booking number kept private). Marked as bought in the Paris Dec 5 stop, the Disney card, the guide checklist (fixed "Comprado" state) and the Disney prep list.
 **Status:** done on branch, NOT yet merged to `main`.
-**Next / requests:** Owner: confirm whether the tickets are 1 park or 2 parks (Park Hopper); if 1 park, say which, and the Disney panel priorities should drop the other park.
+**Next / requests:** Resolved: tickets are 1 day / 2 parks (both parks stay in the Disney panel).
 
 ### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Fact-checked the guide, Disney panel and Munich cards against official 2026 sources (IDFM/RATP, paris.fr, Notre-Dame, Tour Eiffel, Galeries Lafayette, Sainte-Chapelle, ANSM, Disneyland Paris, Malpensa Express, ATM, Paris Aéroport, CBP, easyJet, MVV, muenchen.de, Tollwood, Märchenbazar, Deutsches Museum, Nymphenburg, BMW Welt, LEGO). Retagged verified tips as Oficial with links; corrected fares (2026), Notre-Dame booking window, RER A branch warning, Disney Christmas show list, Munich hours and child fares.

@@ -133,7 +133,7 @@ equipaje: ["Equipaje", [
 };
 
 const CHECKS = [
- ["Disneyland: entradas para el sáb 5 dic","https://www.disneylandparis.com/",true],
+ ["Disneyland: entradas 1 día / 2 parques, sáb 5 dic","https://www.disneylandparis.com/",true],
  ["Torre Eiffel: cima por ascensor, dom 6 a las 10:30","https://www.toureiffel.paris/en"],
  ["Sainte-Chapelle: lun 7 a las 10:00 (2 adultos + 1 gratis)","https://www.sainte-chapelle.fr/en/"],
  ["Notre-Dame: reserva gratuita opcional (abre máx. 2 días antes)","https://www.notredamedeparis.fr/visiter/reserver-gratuitement/"],
