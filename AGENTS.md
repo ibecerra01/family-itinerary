@@ -18,11 +18,12 @@ Plain HTML/CSS/JS, no build step. Files:
 - `place-details.js`: rich place cards (`PLACES`, keyed by stop name), "Cómo llegar" and "Volver al hotel".
 - `disney.js`: Dec 5 Disney plan (rides, shows, prep checklist; saved in browser storage).
 - `guide.js`: "Guía del viaje" panel: travel days, bookings checklist, per-city tips (transport, markets, food), packing. Every tip has a source tag: o=Oficial, v=Video, s=Sugerencia, c=Confirmar. Add new tips there.
+- `guide-details.js`: `GUIDE_DETAILS` (dropdown text per tip, key = first words of the tip, include the source) and `GUIDE_FOOD` (place tiles in "Comer y beber": photo, website, address for "Ver dónde", why, hours).
 - Stop format: `[time, name, description, lat, lng, optionalSearchQuery]`.
 
 ## Hard rules
 - **Never print, copy or replace the Google Maps key** in `index.html`. It is restricted to the published site.
 - **Public repo:** no booking codes, passport data, flight numbers, apartment unit, full names, the child's name or age.
 - **No invented facts:** opening hours, prices, show times and heights must come from an official source or be labeled "por confirmar".
-- **No Disney artwork:** do not host or copy the official park maps; link to them. Ride numbers (#) refer to the official PDFs.
+- **No Disney artwork:** do not host or copy the official park maps; link to Disney's own PDFs (`PDF_DLP`, `PDF_DAW` in `disney.js`). Ride numbers (#) refer to those PDFs and link to them. **Owner exception (2026-11-10/11):** `assets/disneyland-park-map.webp` and `assets/disney-adventure-world-map.webp` are the owner's own recreated maps, published at the owner's request; pins in `DLP_PINS` / `DAW_PINS` (disney.js) are % positions on those images and must match the official PDF numbering. Do not add other Disney artwork without the owner's OK.
 - Keep the UI in Spanish. Keep changes simple: no frameworks, no build tools, no backend.
