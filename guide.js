@@ -55,12 +55,10 @@ paris: ["París", [
   ["Notre-Dame: entrada gratis; reserva opcional solo en el sitio o la app oficial, abre como máximo 2 días antes. No pagar a terceros","o","https://www.notredamedeparis.fr/visiter/reserver-gratuitement/"],
   ["Sainte-Chapelle: menores de 18 gratis, adultos €22, 9:00–17:00 en invierno; reservar horario también para la niña","o","https://www.sainte-chapelle.fr/visiter/informations-pratiques"]]],
  ["Comer y beber", [
-  ["Chocolate caliente: Carette (Trocadéro, dom 6) · Angelina (rue de Rivoli, junto a Tullerías, lun 7) · La Jacobine (Odéon, lun 7) · Cyril Lignac","v"],
   ["En los mercados: raclette, tartiflette, crepe de Nutella y banana, gofres, castañas, vin chaud y chocolate caliente para la niña","v"],
   ["Platos de invierno en bistró: coq au vin, cassoulet, choucroute, tarte tatin, profiteroles","v"],
   ["Mercados locales: galette-saucisse y comida casera; en Aligre (mar 8) desayuno con pan, quesos y frutas","v"],
-  ["Comer barato: supermercados tipo Franprix tienen comida lista y microondas","v"],
-  ["Chocolates de regalo (Jacques Genin, Patrick Roger, À la Mère de Famille): comprarlos al final de París para que lleguen frescos","v"]]],
+  ["Comer barato: supermercados tipo Franprix tienen comida lista y microondas","v"]]],
  ["Avisos", [
   ["En Francia el paracetamol y el ibuprofeno solo se venden en farmacia, detrás del mostrador: traerlos de casa","o","https://ansm.sante.fr/dossiers-thematiques/les-anti-inflammatoires-non-steroidiens-ains-ibuprofene-ketoprofene-acide-acetylsalicylique"],
   ["Baños públicos de pago (~€2) cerca de Notre-Dame; usar los de museos, tiendas grandes y cafés","v"]]]
@@ -85,8 +83,7 @@ munich: ["Múnich", [
   ["Käsespätzle (pasta con queso, buena opción para la niña) · Kaiserschmarrn de postre","s"],
   ["En mercados: Lebkuchen, almendras garrapiñadas, Kartoffelpuffer","s"],
   ["Adultos: Glühwein, Helles, Weißbier o Radler. Feuerzangenbowle lleva más alcohol","s"],
-  ["Niña: Kinderpunsch, chocolate caliente o Apfelschorle","s"],
-  ["Restaurantes: Augustiner-Keller (cerca del hotel, reservar) o Schneider Bräuhaus (cerca de Marienplatz)","s"]]],
+  ["Niña: Kinderpunsch, chocolate caliente o Apfelschorle","s"]]],
  ["Horarios clave", [
   ["Glockenspiel: 11:00 y 12:00","o","https://www.muenchen.de/sehenswuerdigkeiten/glockenspiel"],
   ["LEGO Store: lun–sáb 10:00–20:00, cerrado domingo","o","https://www.lego.com/de-de/stores/store/munchen-zentrum"],
@@ -153,19 +150,38 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 
 const style=document.createElement("style");
-style.textContent='.gd .dz-head,.gd .dz-tabs{background:#16324a}.gd .dz-kicker{color:#f2c9a5}.gd .dz-tabs button{border-color:#4d6b85;color:#dbe7f1}.gd .dz-tabs button.on{color:#16324a}.gd-tag{display:inline-block;font-size:10px;font-weight:800;border-radius:6px;padding:2px 6px;color:#fff;margin-right:6px;vertical-align:1px}.gd-item{font-size:13px;line-height:1.55;color:#33415a}.gd-item a{font-weight:700;color:#16324a;margin-left:4px}.gd-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.gd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.gd-tile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;background:#fff;border:1px solid #e3e0ef;border-radius:14px;padding:14px;min-height:118px;color:#16324a;box-shadow:0 2px 8px #16324a0d}.gd-tile:active{transform:scale(.98)}.gd-ico{font-size:26px;line-height:1}.gd-tt{font-size:14px;font-weight:800;line-height:1.3}.gd-sub{font-size:11px;color:#6b7a8c;font-weight:700;margin-top:auto}.gd-back{margin-bottom:10px}.gd-h{display:flex;align-items:center;gap:10px;font-family:Georgia,serif;font-size:22px;color:#16324a;margin:4px 2px 10px}.gd-h .gd-ico{font-size:28px}';
+style.textContent='.gd .dz-head,.gd .dz-tabs{background:#16324a}.gd .dz-kicker{color:#f2c9a5}.gd .dz-tabs button{border-color:#4d6b85;color:#dbe7f1}.gd .dz-tabs button.on{color:#16324a}.gd-tag{display:inline-block;font-size:10px;font-weight:800;border-radius:6px;padding:2px 6px;color:#fff;margin-right:6px;vertical-align:1px}.gd-item{font-size:13px;line-height:1.55;color:#33415a}.gd-item a{font-weight:700;color:#16324a;margin-left:4px}.gd-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.gd-dd summary{list-style:none;cursor:pointer;padding-right:22px;position:relative}.gd-dd summary::-webkit-details-marker{display:none}.gd-dd summary::after{content:"▾";position:absolute;right:0;top:0;color:#6b7a8c;font-size:14px}.gd-dd[open] summary::after{content:"▴"}.gd-dd{display:block}.gd-more{font-size:13px;line-height:1.6;color:#4b5a6e;margin-top:10px;padding-top:10px;border-top:1px dashed #dfe3ea}.gd-src{margin-top:6px;font-size:12px;color:#6b7a8c}.gd-src a{font-weight:700;color:#16324a}.gd-food{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}.gd-place{background:#fff;border:1px solid #e3e0ef;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}.gd-ph{height:140px;background:linear-gradient(135deg,#f6e7d8,#e9eef5);position:relative}.gd-ph img{width:100%;height:100%;object-fit:cover;display:block}.gd-ph span{display:none}.gd-ph.noimg{display:flex;align-items:center;justify-content:center}.gd-ph.noimg span{display:block;font-size:44px}.gd-pb{padding:12px 13px 14px;display:flex;flex-direction:column;gap:4px;flex:1}.gd-pb b{font-size:15px;color:#16324a}.gd-pb small{font-size:11px;font-weight:800;color:#a86a12;text-transform:uppercase;letter-spacing:.04em}.gd-pb p{font-size:13px;line-height:1.5;color:#4b5a6e;margin:2px 0}.gd-why summary{font-size:12px;font-weight:800;color:#16324a;cursor:pointer;margin-top:4px}.gd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:8px}.gd-acts .dz-btn{flex:1;text-align:center}.gd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.gd-tile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;background:#fff;border:1px solid #e3e0ef;border-radius:14px;padding:14px;min-height:118px;color:#16324a;box-shadow:0 2px 8px #16324a0d}.gd-tile:active{transform:scale(.98)}.gd-ico{font-size:26px;line-height:1}.gd-tt{font-size:14px;font-weight:800;line-height:1.3}.gd-sub{font-size:11px;color:#6b7a8c;font-weight:700;margin-top:auto}.gd-back{margin-bottom:10px}.gd-h{display:flex;align-items:center;gap:10px;font-family:Georgia,serif;font-size:22px;color:#16324a;margin:4px 2px 10px}.gd-h .gd-ico{font-size:28px}';
 document.head.appendChild(style);
 const shell=document.createElement("section");shell.className="dz gd";shell.hidden=true;shell.setAttribute("aria-label","Guía del viaje");
-shell.innerHTML='<div class="dz-head"><div><div class="dz-kicker">Familia · Europa 2026</div><h2>Guía del viaje</h2></div><button type="button" class="dz-close" aria-label="Cerrar guía">×</button></div><div class="dz-tabs">'+Object.keys(TABS).map(k=>'<button type="button" data-gtab="'+k+'">'+TABS[k][0]+'</button>').join("")+'</div><div class="dz-body"></div>';
+shell.innerHTML='<div class="dz-head"><div><div class="dz-kicker">Familia · Europa 2026</div><h2>Guía del viaje</h2></div><button type="button" class="dz-close" aria-label="Volver al mapa">← Mapa</button></div><div class="dz-tabs">'+Object.keys(TABS).map(k=>'<button type="button" data-gtab="'+k+'">'+TABS[k][0]+'</button>').join("")+'</div><div class="dz-body"></div>';
 document.body.appendChild(shell);
 const body=shell.querySelector(".dz-body");
 function close(){shell.hidden=true;document.body.style.overflow="";}
-shell.querySelector(".dz-close").onclick=close;
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!shell.hidden)close();});
-shell.querySelectorAll("[data-gtab]").forEach(b=>b.onclick=()=>{state.tab=b.dataset.gtab;state.sec=-1;save();draw();body.scrollTop=0;});
+// History: opening the guide and opening a topic each add one step, so the phone's back button walks back
+function goBack(){if(history.state&&String(history.state.fi||"").startsWith("guide"))history.back();else if(state.sec>=0){state.sec=-1;save();draw();}else close();}
+shell.querySelector(".dz-close").onclick=()=>{if(state.sec>=0&&history.state&&history.state.fi==="guide-sec"){history.go(-2);}else goBack();};
+window.addEventListener("popstate",()=>{if(shell.hidden)return;const f=history.state&&history.state.fi;if(f==="guide"){state.sec=-1;save();draw();body.scrollTop=0;}else if(f!=="guide-sec")close();});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!shell.hidden)goBack();});
+shell.querySelectorAll("[data-gtab]").forEach(b=>b.onclick=()=>{state.tab=b.dataset.gtab;if(state.sec>=0&&history.state&&history.state.fi==="guide-sec"){history.back();return;}state.sec=-1;save();draw();body.scrollTop=0;});
+if(history.state&&history.state.fi)history.replaceState(null,"");
 
 const ICONS={"Días de traslado (horarios locales)":"✈️","Alojamiento":"🏨","Reservas y pendientes":"✅","Moverse":"🚇","Mercados y luces de Navidad":"🎄","Mercados":"🎄","Comer y beber":"☕","Avisos":"⚠️","Horarios clave":"🕘","Decisiones pendientes":"🤔","Llegada (sáb 12)":"🚆","Plan":"🗺️","Salida (sáb 19)":"🧳","Ropa":"🧥","Salud y bolso del día":"💊","Electricidad y documentos":"🔌","Apps para instalar":"📱"};
 function tag(t){const x=TAGS[t]||TAGS.s;return '<span class="gd-tag" style="background:'+x[1]+'">'+x[0]+'</span>';}
+function detailFor(text){const D=window.GUIDE_DETAILS||{};for(const k in D){if(text.startsWith(k))return D[k];}return "";}
+function itemHtml(it){
+ const d=detailFor(it[0]),link=it[2]?'<a target="_blank" rel="noopener" href="'+it[2]+'">Fuente ↗</a>':'';
+ if(!d)return '<div class="dz-row"><div class="dz-main gd-item">'+tag(it[1])+esc(it[0])+(it[2]?' <a target="_blank" rel="noopener" href="'+it[2]+'">Abrir ↗</a>':'')+'</div></div>';
+ return '<details class="dz-row gd-dd"><summary class="gd-item">'+tag(it[1])+esc(it[0])+'</summary><div class="gd-more">'+esc(d)+(link?'<div class="gd-src">'+link+'</div>':'')+'</div></details>';
+}
+function mapsUrl(f){return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(f.name+", "+f.address);}
+function foodHtml(cityKey){
+ const list=(window.GUIDE_FOOD||[]).filter(f=>f.city===cityKey);if(!list.length)return "";
+ return '<div class="dz-land">Lugares</div><div class="gd-food">'+list.map(f=>'<div class="gd-place">'
+  +(f.image?'<div class="gd-ph"><img loading="lazy" src="'+esc(f.image)+'" alt="'+esc(f.name)+'" onerror="this.parentNode.classList.add(\'noimg\');this.remove()"><span>'+esc(f.emoji||"🍽️")+'</span></div>':'<div class="gd-ph noimg"><span>'+esc(f.emoji||"🍽️")+'</span></div>')
+  +'<div class="gd-pb"><b>'+esc(f.name)+'</b><small>'+esc(f.when)+'</small><p>'+esc(f.desc)+'</p>'
+  +'<details class="gd-why"><summary>Por qué</summary><p>'+esc(f.why)+'</p>'+(f.hours?'<p class="gd-src">Horario: '+esc(f.hours)+'</p>':'')+'<p class="gd-src">'+esc(f.address)+'</p></details>'
+  +'<div class="gd-acts"><a class="dz-btn" target="_blank" rel="noopener" href="'+mapsUrl(f)+'">📍 Ver dónde</a>'+(f.url?'<a class="dz-btn" target="_blank" rel="noopener" href="'+esc(f.url)+'">Sitio web ↗</a>':'')+'</div></div></div>').join("")+'</div><div class="dz-land">Más ideas</div>';
+}
 function checksDone(){return CHECKS.filter((c,i)=>c[2]||state.done[i]).length;}
 function drawTiles(){
  let h='<div class="dz-note">Resumen del viaje: planes de la familia, reservas y consejos de videos. Etiquetas:<div class="gd-legend">'+Object.keys(TAGS).map(tag).join("")+'</div>Lo marcado <b>Confirmar</b> o <b>Video</b> no es dato oficial: verificar antes de depender de ello.</div><div class="gd-grid">';
@@ -174,7 +190,7 @@ function drawTiles(){
   h+='<button type="button" class="gd-tile" data-sec="'+i+'"><span class="gd-ico">'+(ICONS[sec[0]]||"📌")+'</span><span class="gd-tt">'+esc(sec[0])+'</span><span class="gd-sub">'+sub+'</span></button>';
  });
  body.innerHTML=h+'</div>';
- body.querySelectorAll("[data-sec]").forEach(b=>b.onclick=()=>{state.sec=Number(b.dataset.sec);save();draw();body.scrollTop=0;});
+ body.querySelectorAll("[data-sec]").forEach(b=>b.onclick=()=>{state.sec=Number(b.dataset.sec);save();history.pushState({fi:"guide-sec"},"");draw();body.scrollTop=0;});
 }
 function drawSection(sec){
  let h='<button type="button" class="dz-btn gd-back" data-back>← Temas</button><div class="gd-h"><span class="gd-ico">'+(ICONS[sec[0]]||"📌")+'</span>'+esc(sec[0])+'</div>';
@@ -182,10 +198,11 @@ function drawSection(sec){
   h+='<div class="dz-note" style="margin:0 0 6px">'+checksDone()+' de '+CHECKS.length+' listos · se guarda solo en este teléfono</div>';
   CHECKS.forEach((c,i)=>{h+='<div class="dz-row dz-prep"><label><input type="checkbox" data-gcheck="'+i+'"'+(c[2]||state.done[i]?" checked":"")+(c[2]?" disabled":"")+'><span>'+esc(c[0])+(c[2]?' <b style="color:#2e7d4f">· Comprado</b>':'')+'</span></label>'+(c[1]?'<a target="_blank" rel="noopener" href="'+c[1]+'">Abrir ↗</a>':'')+'</div>';});
  }else{
-  sec[1].forEach(it=>{h+='<div class="dz-row"><div class="dz-main gd-item">'+tag(it[1])+esc(it[0])+(it[2]?'<a target="_blank" rel="noopener" href="'+it[2]+'">Abrir ↗</a>':'')+'</div></div>';});
+  if(sec[0]==="Comer y beber")h+=foodHtml(state.tab);
+  sec[1].forEach(it=>{h+=itemHtml(it);});
  }
  body.innerHTML=h;
- body.querySelector("[data-back]").onclick=()=>{state.sec=-1;save();draw();body.scrollTop=0;};
+ body.querySelector("[data-back]").onclick=goBack;
  body.querySelectorAll("[data-gcheck]").forEach(c=>c.onchange=()=>{if(c.checked)state.done[c.dataset.gcheck]=true;else delete state.done[c.dataset.gcheck];save();draw();});
 }
 function draw(){
@@ -193,6 +210,6 @@ function draw(){
  const secs=TABS[state.tab][1];
  if(state.sec>=0&&secs[state.sec])drawSection(secs[state.sec]);else drawTiles();
 }
-window.openGuide=(tab)=>{if(tab&&TABS[tab])state.tab=tab;state.sec=-1;shell.hidden=false;document.body.style.overflow="hidden";draw();};
+window.openGuide=(tab)=>{if(tab&&TABS[tab])state.tab=tab;state.sec=-1;if(shell.hidden)history.pushState({fi:"guide"},"");shell.hidden=false;document.body.style.overflow="hidden";draw();};
 const btn=document.getElementById("openGuide");if(btn)btn.onclick=()=>window.openGuide(typeof city!=="undefined"&&TABS[city]?city:undefined);
 })();
