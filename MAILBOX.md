@@ -15,6 +15,11 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 ---
 
 ### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Owner's corrected Disney Adventure World map (`assets/disney-adventure-world-map.webp`) checked against the official PDF: all 22 numbers match. Wired as `DAW_PINS`; "Mapas" tab now switches between Disneyland Park and Disney Adventure World. Added #1, #2, #7, #9 (shows) to the ride list.
+**Status:** done on branch, NOT yet merged.
+**Next / requests:** Owner: "publica".
+
+### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Added Cédric Grolet tiles (Opéra and Le Meurice) to Paris "Comer y beber". Both closed Mon–Tue (official sites): only Fri 4 or Sun 6 work; Opéra suggested Sun 6 before 19:00.
 **Status:** done on branch, NOT yet merged.
 **Next / requests:** Owner is regenerating the Disney Adventure World map to match the official PDF numbering (9 of 22 numbers were misplaced: 4, 5, 6, 8, 9, 12, 13, 19, 20). Wire it like `DLP_PINS` when it arrives.

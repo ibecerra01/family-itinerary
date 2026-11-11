@@ -9,9 +9,12 @@ const OFFICIAL_SITE = "https://www.disneylandparis.com/";
 // Official PDFs hosted by Disney (linked, never copied)
 const PDF_DLP = "https://brochure.disneylandparis.com/HCP/EN/adlp/common/data/catalogue.pdf";
 const PDF_DAW = "https://brochure.disneylandparis.com/HCP/EN/awds/common/data/catalogue.pdf";
-// Owner-provided recreated Disneyland Park map (owner decision 2026-11-10). Pins: [label, rideId, x%, y%]
+// Owner-provided recreated park maps (owner decision 2026-11-10/11). Pins: [label, rideId, x%, y%]
 const DLP_MAP = "assets/disneyland-park-map.webp";
 const DLP_PINS=[["1","p1",52.28,78.91],["2","p2",53.66,74.40],["3","p3",57.67,77.53],["3","p3",50.07,67.77],["4","p4",47.38,59.67],["5","p5",48.62,62.34],["6","p6",37.22,68.14],["7","p7",38.33,62.34],["8","p8",34.88,50.83],["8b","p8b",42.75,52.49],["9","p9",29.49,47.70],["10","p10",19.48,55.25],["11","p11",9.32,48.62],["12","p1",7.73,42.82],["13","p13",31.35,28.82],["14","p14",36.95,27.53],["15","p15",41.23,37.29],["16","p16",22.24,21.36],["17","p17",31.35,24.40],["18","p18",39.30,15.93],["19","p19",52.62,33.15],["20","p20",50.41,35.91],["21","p21",49.24,27.44],["22","p22",49.93,23.76],["23","p23",53.80,20.90],["24","p24",43.09,16.21],["25","p1",52.49,9.48],["26","p26",49.86,10.87],["27","p27",49.38,15.93],["28","p28",55.52,12.15],["29","p29",58.36,17.13],["30","p30",64.78,6.45],["31","p31",70.30,5.89],["32","p32",78.25,18.51],["33","p33",69.48,17.68],["34","p34",57.60,35.91],["35","p35",68.65,41.53],["36","p36",73.34,48.34],["37","p37",76.38,40.52],["38","p1",85.29,34.99],["39","p39",85.15,38.03],["40","p40",84.81,41.99],["41","p41",89.78,47.70],["42","p42",78.87,60.77],["43","p43",77.35,52.49],["44","p44",71.20,56.81]];
+const DAW_MAP = "assets/disney-adventure-world-map.webp";
+const DAW_PINS=[["1","a1",54.14,72.74],["2","a2",62.36,60.31],["3","a3",64.85,73.11],["4","a4",73.62,72.10],["5","a5",41.71,74.03],["6","a6",32.87,63.35],["7","a7",29.28,69.43],["8","a8",46.69,50.92],["9","a9",36.33,35.82],["10","a10",72.17,57.09],["11","a11",82.18,57.18],["12","a12",82.87,44.48],["13","a13",74.24,28.27],["14","a14",60.70,47.88],["15","a15",71.06,46.13],["16","a16",68.65,36.00],["17","a17",13.05,37.66],["18","a18",33.91,51.84],["19","a19",31.28,40.52],["20","a20",60.77,38.49],["21","a21",55.80,8.66],["22","a22",61.12,11.60]];
+const PARKS={dlp:["Disneyland Park",DLP_MAP,DLP_PINS],daw:["Disney Adventure World",DAW_MAP,DAW_PINS]};
 function pdfFor(r){return r[0][0]==="a"?PDF_DAW:PDF_DLP;}
 const TYPES = {big:["Emociones fuertes","#c75a22"],fam:["Familia","#2a7fbf"],kid:["Pequeños","#c2457f"],show:["Show / personajes","#6b52b3"]};
 const PRI = ["Imprescindible","Alta","Opcional","Descartado"];
@@ -77,6 +80,10 @@ const RIDES = [
 ["a19","19","Training Center (Avengers)","Disney Adventure World · Avengers Campus","show",0,"",0,"Opcional","Foto con un Vengador; reserva necesaria."],
 ["a8","8","The Twilight Zone Tower of Terror","Disney Adventure World · World Premiere Plaza","big",5,"1,02 m",1,"Descartado","Caída libre en ascensor; puede asustar mucho."],
 ["a4","4","Les Tapis Volants – Flying Carpets Over Agrabah","Disney Adventure World · World Premiere Plaza","kid",3,"",0,"Opcional","Alfombras voladoras (carrusel)."],
+["a1","1","World Premiere","Disney Adventure World · World Premiere Plaza","show",0,"",0,"Opcional","Ambiente de estreno de Hollywood en la calle de entrada."],
+["a2","2","Animation Celebration","Disney Adventure World · World Premiere Plaza","show",0,"",0,"Opcional","Show de animación; horarios en la app."],
+["a7","7","Studio D","Disney Adventure World · World Premiere Plaza","show",10,"",0,"Opcional","Escenario; horarios en la app."],
+["a9","9","Theater of the Stars","Disney Adventure World · World Premiere Plaza","show",0,"",0,"Opcional","Escenario al aire libre; horarios en la app."],
 ["a3","3","Mickey and the Magician (Animagique Theater)","Disney Adventure World · World Premiere Plaza","show",30,"",0,"Opcional","Show de 30 min; horarios en la app."],
 ["a5","5","Together: une Aventure Musicale Pixar","Disney Adventure World · World Premiere Plaza","show",15,"",0,"Opcional","Musical Pixar; se llena 30 min antes."],
 ["a6","6","Stitch Live!","Disney Adventure World · World Premiere Plaza","show",15,"",0,"Opcional","Show interactivo con Stitch (inglés o francés)."]
@@ -219,10 +226,11 @@ function openSheet(id){
 }
 function drawMaps(){
  const z=state.zoom||(window.innerWidth<760?220:100);
- let m='<div class="dz-note"><b>Disneyland Park</b> · toca un número para ver la atracción, su prioridad y marcarla como hecha. Anillo dorado = imprescindible, morado = alta, verde = hecha, gris = descartada.</div>'
+ const pk=PARKS[state.park]||PARKS.dlp;
+ let m='<div class="dz-zoom">'+Object.keys(PARKS).map(k=>'<button type="button" class="dz-btn'+((state.park||"dlp")===k?" on":"")+'" data-park="'+k+'">'+PARKS[k][0]+'</button>').join("")+'</div><div class="dz-note"><b>'+pk[0]+'</b> · toca un número para ver la atracción, su prioridad y marcarla como hecha. Anillo dorado = imprescindible, morado = alta, verde = hecha, gris = descartada.</div>'
   +'<div class="dz-zoom"><button type="button" class="dz-btn" data-zoom="-1">−</button><span>Zoom</span><button type="button" class="dz-btn" data-zoom="1">+</button></div>'
-  +'<div class="dz-mapwrap"><div class="dz-mapinner" style="width:'+z+'%"><img src="'+DLP_MAP+'" alt="Mapa de Disneyland Park con números de atracciones">'
-  +DLP_PINS.map(p=>'<button type="button" class="dz-pin'+pinClass(p[1])+'" data-pin="'+p[1]+'" style="left:'+p[2]+'%;top:'+p[3]+'%" aria-label="Atracción '+p[0]+'"></button>').join("")
+  +'<div class="dz-mapwrap"><div class="dz-mapinner" style="width:'+z+'%"><img src="'+pk[1]+'" alt="Mapa de '+pk[0]+' con números de atracciones">'
+  +pk[2].map(p=>'<button type="button" class="dz-pin'+pinClass(p[1])+'" data-pin="'+p[1]+'" style="left:'+p[2]+'%;top:'+p[3]+'%" aria-label="Atracción '+p[0]+'"></button>').join("")
   +'</div></div><div class="dz-land">Mapas oficiales (PDF)</div>';
  const card=(t,sub,href)=>'<a class="dz-map" target="_blank" rel="noopener" href="'+href+'"><span class="dz-map-ico">🗺️</span><span><b>'+t+'</b><small>'+sub+'</small></span><span class="dz-map-go">Abrir ↗</span></a>';
  body.innerHTML=m+'<div class="dz-note">PDF oficiales de Disney (versión marzo 2026), incluido el de Disney Adventure World. Ábranlos una vez y guárdenlos en el teléfono para verlos sin conexión.</div>'
@@ -230,6 +238,7 @@ function drawMaps(){
   +card("Disney Adventure World","World of Frozen · Worlds of Pixar · Avengers Campus · Adventure Way",PDF_DAW)
   +card("Mapa interactivo oficial","Web de Disneyland Paris; horarios y tiempos de espera están en la app",OFFICIAL_MAP);
  body.querySelectorAll("[data-pin]").forEach(b=>b.onclick=()=>openSheet(b.dataset.pin));
+ body.querySelectorAll("[data-park]").forEach(b=>b.onclick=()=>{state.park=b.dataset.park;save();draw();});
  body.querySelectorAll("[data-zoom]").forEach(b=>b.onclick=()=>{const lv=[100,160,220,300];let i=lv.indexOf(z);if(i<0)i=1;i=Math.max(0,Math.min(lv.length-1,i+Number(b.dataset.zoom)));state.zoom=lv[i];save();const w=body.querySelector(".dz-mapwrap"),fx=(w.scrollLeft+w.clientWidth/2)/w.scrollWidth,fy=(w.scrollTop+w.clientHeight/2)/w.scrollHeight;body.querySelector(".dz-mapinner").style.width=lv[i]+"%";w.scrollLeft=fx*w.scrollWidth-w.clientWidth/2;w.scrollTop=fy*w.scrollHeight-w.clientHeight/2;});
  const w=body.querySelector(".dz-mapwrap");if(w&&!state.zoomInit){w.scrollLeft=(w.scrollWidth-w.clientWidth)/2;}
 }
