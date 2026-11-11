@@ -14,6 +14,13 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 
 ---
 
+### 2026-11-11 · Claude · main (history rewritten, owner request)
+**Did:** Rewrote the full git history with git-filter-repo to remove the child's name/age, the Paris–Munich flight number and the home-country/connection city names from every old version; force-pushed `main` and the working branch (new head 68af097; old main was b672e10). Final files unchanged. Also published the privacy commit (noindex, robots.txt, no home flights).
+**Status:** LIVE.
+**Next / requests:**
+- ANY AI or person with an older clone: delete it and clone again. Never push old history back.
+- Old commits may still be visible through GitHub pull request pages (#1–#8) and caches until GitHub Support purges them (owner action).
+
 ### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Privacy: removed the home-country flight legs (origin city, US connection, return-home date) from the guide; travel days now start at CDG arrival (Dec 4) and end at the CDG departure (Dec 20). Added `<meta name="robots" content="noindex, nofollow, noarchive">` and `robots.txt` (Disallow all) to keep search engines away.
 **Status:** done on branch, NOT yet merged.
