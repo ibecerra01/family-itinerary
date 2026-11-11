@@ -14,6 +14,16 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 
 ---
 
+### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Ride cards (list and map) now show "Mapa oficial" notes for all 64 rides (accessibility map text: restrictions, darkness, splash, motion sickness, reservations), "Opinión" from the videos for 23 rides (source named), and links "⭐ Reseñas en Google" (Maps search) and "Mapa PDF". Data in `RIDE_NOTES` (disney.js). Fixed durations of #21 and #22 (5 min). Premier Access eligibility per ride not added: the official page loads it dynamically and could not be verified.
+**Status:** done on branch, NOT yet merged (with the "Dónde estoy" satellite button).
+**Next / requests:** Owner: "publica".
+
+### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Tested GPS-on-drawing with 14 Google Maps reference points collected by ChatGPT (DLP: castle 48.873177,2.776054 · Big Thunder 48.870651,2.775546 · Pirates 48.873722,2.772931 · small world 48.874999,2.776084 · Hyperspace 48.874098,2.779282 · Phantom Manor 48.870765,2.777355 · Main Street Station 48.870821,2.779096 · Autopia 48.872717,2.779750; DAW: Tower of Terror 48.866415,2.778591 · Crush 48.868321,2.777666 · Flight Force 48.864110,2.780063 · Ratatouille 48.867993,2.775684 · Studio 1 48.867687,2.779635 · Cars canyon 48.868094,2.772600; Frozen and lake not visible in satellite imagery). Result: the illustrations distort angles by ~30 degrees; leave-one-out error ~35-100 m (affine), worse with a thin-plate spline. Decision: NO GPS dot on the drawings. Added "Dónde estoy · mapa real en satélite" in Disney > Mapas: closes the panel, switches the main Google Map to satellite (zoom 17) and turns on the GPS dot (`window.FI_LOCATE`).
+**Status:** done on branch, NOT yet merged.
+**Next / requests:** Owner: "publica".
+
 ### 2026-11-11 · Claude · main (owner approved publish)
 **Did:** Published everything on the branch: Guía navigation fix, "?" position, Disney tab + official PDFs, clickable Disneyland Park and Disney Adventure World maps, guide dropdowns + food tiles (incl. Cédric Grolet), "📍 Mi ubicación" on the main map.
 **Status:** LIVE after merge.

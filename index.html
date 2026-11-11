@@ -162,7 +162,9 @@ b.onclick=()=>{if(!navigator.geolocation){alert("Este navegador no permite la ub
   else{dot.setPosition(pos);ring.setCenter(pos);ring.setRadius(p.coords.accuracy);}
   if(first){map.panTo(pos);if(map.getZoom()<15)map.setZoom(16);first=false;}},
  e=>{b.classList.remove("on");watch=null;alert("No se pudo obtener la ubicación: "+(e.code===1?"permiso denegado. Actívalo en los ajustes del navegador para este sitio.":e.message));},
- {enableHighAccuracy:true,maximumAge:10000,timeout:20000});};}
+ {enableHighAccuracy:true,maximumAge:10000,timeout:20000});};
+// Used by the Disney panel: jump to the real map, satellite view, with the GPS dot
+window.FI_LOCATE=(sat)=>{if(sat){map.setMapTypeId("hybrid");map.setZoom(17);}if(watch===null)b.onclick();else if(dot){map.panTo(dot.getPosition());}};}
 function setCity(k){city=k;CITY=CITIES[k];DAYS=CITY.days;HOTEL=CITY.hotel;enabled=new Set(CITY.open);expanded=new Set(CITY.open);document.getElementById("cityTitle").textContent=CITY.title;document.getElementById("citySub").innerHTML=CITY.sub;document.querySelectorAll("[data-city]").forEach(b=>b.classList.toggle("active",b.dataset.city===k));const det=document.getElementById("fi-detail");if(det)det.hidden=true;if(infoWindow)infoWindow.close();render();if(googleReady){buildLayers();syncMap(true);}}
 document.querySelectorAll("[data-city]").forEach(b=>b.onclick=()=>setCity(b.dataset.city));
 window.initParisMap=()=>{try{map=new google.maps.Map(document.getElementById("map"),{center:CITY.center,zoom:CITY.zoom,mapTypeControl:true,streetViewControl:false,fullscreenControl:true,gestureHandling:"greedy"});infoWindow=new google.maps.InfoWindow();buildLayers();addLocate();googleReady=true;els.setup.style.display="none";syncMap(true);}catch(e){els.error.textContent="No se pudo inicializar el mapa: "+e.message;els.setup.style.display="block";}};
