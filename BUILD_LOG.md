@@ -28,6 +28,8 @@
 
 - Ride cards: official accessibility notes, video opinions, Google reviews link.
 
+- Guide: Christmas market tiles (Paris 7, Munich 5) with source badges.
+
 **Sources and limits**
 - Ride facts: official Disneyland Paris "Attractions Accessibility Map" PDFs (March 2026). No Disney artwork is hosted; the panel links to the official map.
 - Default priorities are suggestions; show info and prep tips are video tips, to confirm in the official app.
