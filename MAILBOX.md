@@ -15,6 +15,11 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 ---
 
 ### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Fixed Le Ruisseau location (owner report): real address 137 Avenue Gallieni, 94160 Saint-Mandé (hotel's own listings; coordinates 48.846207, 2.416292 from api-adresse.data.gouv.fr). Old pin 48.8449, 2.4199 was ~300 m off. Updated the 5 hotel stops (now with address search query), CITIES hotel ("Volver al hotel"), header, hotel card and guide.
+**Status:** done on branch, NOT yet merged.
+**Next / requests:** Owner: "publica".
+
+### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Ride cards (list and map) now show "Mapa oficial" notes for all 64 rides (accessibility map text: restrictions, darkness, splash, motion sickness, reservations), "Opinión" from the videos for 23 rides (source named), and links "⭐ Reseñas en Google" (Maps search) and "Mapa PDF". Data in `RIDE_NOTES` (disney.js). Fixed durations of #21 and #22 (5 min). Premier Access eligibility per ride not added: the official page loads it dynamically and could not be verified.
 **Status:** done on branch, NOT yet merged (with the "Dónde estoy" satellite button).
 **Next / requests:** Owner: "publica".
