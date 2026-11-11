@@ -26,6 +26,8 @@
 
 - 2026-11-11: GPS dot on the Disney drawings rejected (drawings distort ~30 degrees, error 35-100 m); the Disney Mapas tab opens the real satellite map with GPS instead. Main map has Mi ubicación.
 
+- Ride cards: official accessibility notes, video opinions, Google reviews link.
+
 **Sources and limits**
 - Ride facts: official Disneyland Paris "Attractions Accessibility Map" PDFs (March 2026). No Disney artwork is hosted; the panel links to the official map.
 - Default priorities are suggestions; show info and prep tips are video tips, to confirm in the official app.
