@@ -14,6 +14,12 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 
 ---
 
+### 2026-11-11 · Claude · main (owner approved publish)
+**Did:** Published everything on the branch: Guía navigation fix, "?" position, Disney tab + official PDFs, clickable Disneyland Park and Disney Adventure World maps, guide dropdowns + food tiles (incl. Cédric Grolet), "📍 Mi ubicación" on the main map.
+**Status:** LIVE after merge.
+**Next / requests:**
+- GPS dot on the Disney drawings: blocked on reference coordinates (OpenStreetMap/Wikidata refuse automated requests). Owner will collect 8 Google Maps coordinates per park with ChatGPT (castle, Big Thunder, Pirates, small world, Hyperspace Mountain, Phantom Manor, Main Street station, Autopia / Tower of Terror, Arendelle castle, Crush, Flight Force, Ratatouille, entrance gate, lake centre, Cars Road Trip canyon). Then: fit an affine transform from image % (`DLP_PINS`/`DAW_PINS` positions) to lat/lng, report leave-one-out error, and add an "estás aquí" dot (or ~50 m circle if error is large) on the Mapas tab using navigator.geolocation.
+
 ### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Owner's corrected Disney Adventure World map (`assets/disney-adventure-world-map.webp`) checked against the official PDF: all 22 numbers match. Wired as `DAW_PINS`; "Mapas" tab now switches between Disneyland Park and Disney Adventure World. Added #1, #2, #7, #9 (shows) to the ride list.
 **Status:** done on branch, NOT yet merged.
