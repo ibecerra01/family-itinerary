@@ -8,12 +8,11 @@
    «The Ultimate Guide to Disneyland Paris», «Everyone Books Christmas in Paris for the Wrong Week», «What Paris Locals Know About the Metro». */
 window.GUIDE_DETAILS = {
 // ---------------- Viaje ----------------
-"Jue 3 · origen�":"Día largo con vuelo nocturno desde conexión. Al llegar a CDG (11:35 del viernes) contar 1 a 1,5 h para migración y maletas antes de salir hacia Saint-Mandé. Por eso el viernes solo tiene compras de ropa térmica y descanso. Fuente: reservas e itinerario familiar.",
+"Vie 4 · Llegada a París CDG":"Al llegar a CDG (11:35) contar 1 a 1,5 h para migración y maletas antes de salir hacia Saint-Mandé. Por eso el viernes solo tiene compras de ropa térmica y descanso. Fuente: reservas e itinerario familiar.",
 "Mar 8 · Salir del hotel":"El vuelo a Múnich sale a las 18:20. Salir entre 14:00 y 14:15 deja margen para el tráfico (la hora punta empieza ~16:00) y para entregar maletas. Fuente: itinerario familiar; horas punta según el video «How to Buy Metro Tickets in Paris».",
 "Sáb 12 · Tren":"Trayecto de día por Innsbruck, el paso del Brennero y Bolzano: el paisaje alpino es parte del viaje. El cambio de 61 min en Verona Porta Nuova alcanza sin correr. Llevar agua y algo de comer. Fuente: reservas y resumen del viaje.",
 "Sáb 19 · Milán Malpensa":"La entrega de maletas cierra a las 14:30, una hora antes del vuelo. El Malpensa Express sale de Cadorna, junto al apartamento. Se llega a CDG T2D: por eso conviene un hotel en Roissypole, conectado con el tren gratuito CDGVAL.",
-"Dom 20 · CDG Terminal 1":"United opera en la Terminal 1 (Paris Aéroport). Desde Roissypole se llega en CDGVAL en pocos minutos. En conexión hay ~7 h de escala: suficiente para migración y volver a documentar.",
-"Regreso: en conexión":"En el primer aeropuerto de EE. UU. siempre se recogen las maletas, se pasa por aduana (CBP) y se vuelven a entregar a la aerolínea, aunque el boleto sea de conexión. Fuente: CBP, 2026.",
+"Dom 20 · Vuelo de regreso":"United opera en la Terminal 1 (Paris Aéroport). Desde Roissypole se llega en CDGVAL en pocos minutos.",
 "París 4–8 · Le Ruisseau":"A pasos de la estación Saint-Mandé (línea 1) y cerca de Vincennes (RER A directo a Disney): buena base para todo el plan de París.",
 "CDG 19–20":"Roissypole está entre las terminales 1 y 2 y conecta con el CDGVAL, tren gratuito cada pocos minutos. Evita depender de taxis la mañana del vuelo.",
 // ---------------- París · Moverse ----------------

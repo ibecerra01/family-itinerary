@@ -15,6 +15,11 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 ---
 
 ### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Privacy: removed the home-country flight legs (origin city, US connection, return-home date) from the guide; travel days now start at CDG arrival (Dec 4) and end at the CDG departure (Dec 20). Added `<meta name="robots" content="noindex, nofollow, noarchive">` and `robots.txt` (Disallow all) to keep search engines away.
+**Status:** done on branch, NOT yet merged.
+**Next / requests:** Do NOT add home city, home-bound flights or connection airports back to the public site. Owner: set a daily quota cap and billing alert on the Google Maps key in Google Cloud.
+
+### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Christmas markets are now tiles (`GUIDE_MARKETS` in guide-details.js): Paris 7 (Tullerías and Notre-Dame from the family plan + videos; Abbesses, Champs-Élysées, Hôtel de Ville, Saint-Germain, La Défense from videos only), Munich 5 (all from the wife's Munich plan). Each tile: source badge, day fit, dates, hours, "Por qué ir" (plan reason + video comments), address, "📍 Ver dónde", official link; photo loaded from Wikipedia at runtime (`wiki` field). Removed the 10 list items the tiles replace.
 **Status:** done on branch, NOT yet merged.
 **Next / requests:** Owner: "publica". Dates/hours marked "por confirmar" for Abbesses, Saint-Germain, La Défense, Hôtel de Ville, Notre-Dame hours, Residenz/Medieval hours.
@@ -105,7 +110,7 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 **Did:** Added `guide.js` ("📘 Guía" button in header): tabs Viaje (travel days with times, hotels by area, 12-item bookings checklist), París (transport, Christmas markets and lights, food, warnings), Múnich (transport, markets with official 2026 dates, food, decisions), Milán (arrival, plan ideas, Dec 19 departure logistics), Equipaje (clothes, health, plugs, apps). Transcript tips are now in the site, each tagged by source.
 **Status:** done on branch, NOT yet merged to `main`.
 **Next / requests:**
-- Owner: review "Confirmar" items; they are not verified (fares 2025, line 1 / RER A route, conexión re-check, Milano Centrale arrival).
+- Owner: review "Confirmar" items; they are not verified (fares 2025, line 1 / RER A route, Milano Centrale arrival).
 - Any AI: when a "Confirmar" item is verified against an official source, change its tag to `o` and add the link.
 
 ### 2026-11-10 · Claude · branch claude/serene-allen-n8r43a

@@ -10,12 +10,11 @@ const TAGS = {o:["Oficial","#2e7d4f"],v:["Video","#a86a12"],s:["Sugerencia","#5f
 const TABS = {
 viaje: ["Viaje", [
  ["Días de traslado (horarios locales)", [
-  ["Jue 3 · origen� 10:00 → conexión 15:16 · conexión 21:55 → París CDG 11:35 (vie 4)","o"],
+  ["Vie 4 · Llegada a París CDG a las 11:35","o"],
   ["Mar 8 · Salir del hotel 14:00–14:15 · CDG 18:20 → Múnich 19:45","o"],
   ["Sáb 12 · Tren Múnich Hbf 9:23 → Verona 15:01 (cambio de 61 min) → Milano Centrale 16:02 → 17:15 · primera clase, mesa para 3","o"],
   ["Sáb 19 · Milán Malpensa T2 15:30 → París CDG T2D 17:05 · noche cerca de CDG","o"],
-  ["Dom 20 · CDG Terminal 1 (United) 13:25 → conexión 16:10 · conexión 23:49 → origen� 5:10 (lun 21)","o","https://www.parisaeroport.fr/en/passengers/flights/airlines/airline?airline=UA"],
-  ["Regreso: en conexión hay que recoger las maletas, pasar migración y aduana, y volver a documentarlas para el vuelo a origen�","o","https://help.cbp.gov/s/article/Article-1244"]]],
+  ["Dom 20 · Vuelo de regreso desde CDG Terminal 1 (United) a las 13:25","o","https://www.parisaeroport.fr/en/passengers/flights/airlines/airline?airline=UA"]]],
  ["Alojamiento", [
   ["París 4–8 · Le Ruisseau, 137 Avenue Gallieni, Saint-Mandé · desayuno incluido","o","https://www.leruisseau.fr/"],
   ["Múnich 8–12 · hotel a pocos minutos a pie de la estación central","o"],
