@@ -15,6 +15,11 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 ---
 
 ### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Le Ruisseau card showed Wikipedia's Saint-Mandé town hall. Now uses the hotel's own homepage photo (leruisseau.fr; the only photo on its site, shows the restaurant room). Place cards now accept `image` (direct URL) in `PLACES`, used before the Wikipedia lookup.
+**Status:** done on branch, NOT yet merged.
+**Next / requests:** Owner: "publica". If the owner has a better facade photo URL, set `image` on "Le Ruisseau" in place-details.js.
+
+### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Fixed Le Ruisseau location (owner report): real address 137 Avenue Gallieni, 94160 Saint-Mandé (hotel's own listings; coordinates 48.846207, 2.416292 from api-adresse.data.gouv.fr). Old pin 48.8449, 2.4199 was ~300 m off. Updated the 5 hotel stops (now with address search query), CITIES hotel ("Volver al hotel"), header, hotel card and guide.
 **Status:** done on branch, NOT yet merged.
 **Next / requests:** Owner: "publica".
