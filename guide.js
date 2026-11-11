@@ -17,7 +17,7 @@ viaje: ["Viaje", [
   ["Dom 20 · CDG Terminal 1 (United) 13:25 → Newark 16:10 · Newark 23:49 → Panamá 5:10 (lun 21)","o","https://www.parisaeroport.fr/en/passengers/flights/airlines/airline?airline=UA"],
   ["Regreso: en Newark hay que recoger las maletas, pasar migración y aduana, y volver a documentarlas para el vuelo a Panamá","o","https://help.cbp.gov/s/article/Article-1244"]]],
  ["Alojamiento", [
-  ["París 4–8 · Le Ruisseau, Saint-Mandé · desayuno incluido","o"],
+  ["París 4–8 · Le Ruisseau, 137 Avenue Gallieni, Saint-Mandé · desayuno incluido","o","https://www.leruisseau.fr/"],
   ["Múnich 8–12 · hotel a pocos minutos a pie de la estación central","o"],
   ["Milán 12–19 · apartamento en zona Cadorna, con cocina y lavandería compartida","o"],
   ["CDG 19–20 · por reservar · zona Roissypole (tren CDGVAL gratis a las terminales)","s"]]],
