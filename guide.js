@@ -38,12 +38,6 @@ paris: ["París", [
   ["Evitar trasbordos en Châtelet-Les Halles: es un laberinto","v"],
   ["Carteristas: bolso cruzado al frente, sobre todo en metro lleno","v"]]],
  ["Mercados y luces de Navidad", [
-  ["Tullerías: 14 nov 2026 – 3 ene 2027, todos los días 11:00–23:45","o","https://www.paris.fr/evenements/marches-de-noel-2026-le-calendrier-complet-126813"],
-  ["Tullerías (lun 7): el más grande, con noria (de pago), atracciones y comida. Entrada libre. Día de semana al atardecer: ideal","v"],
-  ["Notre-Dame, Square René Viviani: 26 nov – 27 dic 2026","o","https://www.paris.fr/evenements/marches-de-noel-2026-le-calendrier-complet-126813"],
-  ["Notre-Dame (lun 7): pequeño, artesanos franceses, castañas asadas; ahí está el árbol más antiguo de París (1601)","v"],
-  ["Hôtel de Ville: no figura en el calendario oficial 2026 (en 2025 abrió el 5 dic)","c"],
-  ["Saint-Germain: mercado cerca de Odéon y La Jacobine","v"],
   ["Evitar viernes y sábado de noche en Tullerías, Opéra y el mercado de la Torre Eiffel: lleno total","v"],
   ["Muchos mercados cierran hacia las 20:00–21:00; casi todos aceptan tarjeta sin contacto","v"],
   ["Champs-Élysées iluminados cada noche desde las 17:00 hasta medianoche (01:00 viernes y sábado); mercado navideño 22 nov – 4 ene","o","https://www.paris.fr/pages/les-champs-elysees-a-l-heure-des-illuminations-25395"],
@@ -70,11 +64,7 @@ munich: ["Múnich", [
   ["Desde 2026, niños de 6 a 14 años viajan gratis con la Single-Tageskarte de un adulto; menores de 6 siempre gratis","o","https://www.mvv-muenchen.de/tickets-abos-preise/single-tageskarte/"],
   ["Tren del sáb 12 sale de München Hauptbahnhof, a pocos minutos a pie del hotel","o"]]],
  ["Mercados", [
-  ["Christkindlmarkt de Marienplatz: 20 nov – 24 dic 2026, lun–sáb 10–21, dom 10–20","o","https://www.christkindlmarkt-muenchen.de/en/home"],
   ["Canto navideño frente a San Miguel: miércoles 9 dic, 16:30, ~30 min, gratis","o","https://www.christkindlmarkt-muenchen.de/en/home"],
-  ["Märchenbazar: 26 nov – 28 dic 2026, Olympiapark Sur (Spiridon-Louis-Ring 100); viernes 14–23; entrada libre","o","https://maerchenbazar.de/"],
-  ["Weihnachtsdorf de la Residenz: 16 nov – 22 dic · Mercado Medieval de Wittelsbacherplatz: 20 nov – 23 dic","o","https://www.muenchen.travel/artikel/maerkte-feste/weihnachtsmaerkte-in-muenchen"],
-  ["Tollwood en Theresienwiese: 24 nov – 23 dic 2026; lun–vie desde las 14:00; entrada libre (salvo carpas con espectáculo)","o","https://www.tollwood.de/en/besucherinformationen/"],
   ["Visitar los mercados después de las 16:00, con las luces encendidas","s"],
   ["Tazas con depósito: devolverlas o quedárselas de recuerdo","s"]]],
  ["Comer y beber", [
@@ -150,7 +140,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
 
 const style=document.createElement("style");
-style.textContent='.gd .dz-head,.gd .dz-tabs{background:#16324a}.gd .dz-kicker{color:#f2c9a5}.gd .dz-tabs button{border-color:#4d6b85;color:#dbe7f1}.gd .dz-tabs button.on{color:#16324a}.gd-tag{display:inline-block;font-size:10px;font-weight:800;border-radius:6px;padding:2px 6px;color:#fff;margin-right:6px;vertical-align:1px}.gd-item{font-size:13px;line-height:1.55;color:#33415a}.gd-item a{font-weight:700;color:#16324a;margin-left:4px}.gd-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.gd-dd summary{list-style:none;cursor:pointer;padding-right:22px;position:relative}.gd-dd summary::-webkit-details-marker{display:none}.gd-dd summary::after{content:"▾";position:absolute;right:0;top:0;color:#6b7a8c;font-size:14px}.gd-dd[open] summary::after{content:"▴"}.gd-dd{display:block}.gd-more{font-size:13px;line-height:1.6;color:#4b5a6e;margin-top:10px;padding-top:10px;border-top:1px dashed #dfe3ea}.gd-src{margin-top:6px;font-size:12px;color:#6b7a8c}.gd-src a{font-weight:700;color:#16324a}.gd-food{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}.gd-place{background:#fff;border:1px solid #e3e0ef;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}.gd-ph{height:140px;background:linear-gradient(135deg,#f6e7d8,#e9eef5);position:relative}.gd-ph img{width:100%;height:100%;object-fit:cover;display:block}.gd-ph span{display:none}.gd-ph.noimg{display:flex;align-items:center;justify-content:center}.gd-ph.noimg span{display:block;font-size:44px}.gd-pb{padding:12px 13px 14px;display:flex;flex-direction:column;gap:4px;flex:1}.gd-pb b{font-size:15px;color:#16324a}.gd-pb small{font-size:11px;font-weight:800;color:#a86a12;text-transform:uppercase;letter-spacing:.04em}.gd-pb p{font-size:13px;line-height:1.5;color:#4b5a6e;margin:2px 0}.gd-why summary{font-size:12px;font-weight:800;color:#16324a;cursor:pointer;margin-top:4px}.gd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:8px}.gd-acts .dz-btn{flex:1;text-align:center}.gd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.gd-tile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;background:#fff;border:1px solid #e3e0ef;border-radius:14px;padding:14px;min-height:118px;color:#16324a;box-shadow:0 2px 8px #16324a0d}.gd-tile:active{transform:scale(.98)}.gd-ico{font-size:26px;line-height:1}.gd-tt{font-size:14px;font-weight:800;line-height:1.3}.gd-sub{font-size:11px;color:#6b7a8c;font-weight:700;margin-top:auto}.gd-back{margin-bottom:10px}.gd-h{display:flex;align-items:center;gap:10px;font-family:Georgia,serif;font-size:22px;color:#16324a;margin:4px 2px 10px}.gd-h .gd-ico{font-size:28px}';
+style.textContent='.gd .dz-head,.gd .dz-tabs{background:#16324a}.gd .dz-kicker{color:#f2c9a5}.gd .dz-tabs button{border-color:#4d6b85;color:#dbe7f1}.gd .dz-tabs button.on{color:#16324a}.gd-tag{display:inline-block;font-size:10px;font-weight:800;border-radius:6px;padding:2px 6px;color:#fff;margin-right:6px;vertical-align:1px}.gd-item{font-size:13px;line-height:1.55;color:#33415a}.gd-item a{font-weight:700;color:#16324a;margin-left:4px}.gd-legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}.gd-dd summary{list-style:none;cursor:pointer;padding-right:22px;position:relative}.gd-dd summary::-webkit-details-marker{display:none}.gd-dd summary::after{content:"▾";position:absolute;right:0;top:0;color:#6b7a8c;font-size:14px}.gd-dd[open] summary::after{content:"▴"}.gd-dd{display:block}.gd-more{font-size:13px;line-height:1.6;color:#4b5a6e;margin-top:10px;padding-top:10px;border-top:1px dashed #dfe3ea}.gd-src{margin-top:6px;font-size:12px;color:#6b7a8c}.gd-src a{font-weight:700;color:#16324a}.gd-food{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}.gd-place{background:#fff;border:1px solid #e3e0ef;border-radius:14px;overflow:hidden;display:flex;flex-direction:column}.gd-ph{height:140px;background:linear-gradient(135deg,#f6e7d8,#e9eef5);position:relative}.gd-ph img{width:100%;height:100%;object-fit:cover;display:block}.gd-ph span{display:none}.gd-ph .gd-badge{position:absolute;left:8px;top:8px;color:#fff;font-style:normal;font-size:11px;font-weight:800;padding:3px 8px;border-radius:7px}.gd-ph.noimg img{display:none}.gd-ph.noimg{display:flex;align-items:center;justify-content:center}.gd-ph.noimg span{display:block;font-size:44px}.gd-pb{padding:12px 13px 14px;display:flex;flex-direction:column;gap:4px;flex:1}.gd-pb b{font-size:15px;color:#16324a}.gd-pb small{font-size:11px;font-weight:800;color:#a86a12;text-transform:uppercase;letter-spacing:.04em}.gd-pb p{font-size:13px;line-height:1.5;color:#4b5a6e;margin:2px 0}.gd-why summary{font-size:12px;font-weight:800;color:#16324a;cursor:pointer;margin-top:4px}.gd-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:8px}.gd-acts .dz-btn{flex:1;text-align:center}.gd-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}.gd-tile{display:flex;flex-direction:column;align-items:flex-start;gap:6px;text-align:left;background:#fff;border:1px solid #e3e0ef;border-radius:14px;padding:14px;min-height:118px;color:#16324a;box-shadow:0 2px 8px #16324a0d}.gd-tile:active{transform:scale(.98)}.gd-ico{font-size:26px;line-height:1}.gd-tt{font-size:14px;font-weight:800;line-height:1.3}.gd-sub{font-size:11px;color:#6b7a8c;font-weight:700;margin-top:auto}.gd-back{margin-bottom:10px}.gd-h{display:flex;align-items:center;gap:10px;font-family:Georgia,serif;font-size:22px;color:#16324a;margin:4px 2px 10px}.gd-h .gd-ico{font-size:28px}';
 document.head.appendChild(style);
 const shell=document.createElement("section");shell.className="dz gd";shell.hidden=true;shell.setAttribute("aria-label","Guía del viaje");
 shell.innerHTML='<div class="dz-head"><div><div class="dz-kicker">Familia · Europa 2026</div><h2>Guía del viaje</h2></div><button type="button" class="dz-close" aria-label="Volver al mapa">← Mapa</button></div><div class="dz-tabs">'+Object.keys(TABS).map(k=>'<button type="button" data-gtab="'+k+'">'+TABS[k][0]+'</button>').join("")+'</div><div class="dz-body"></div>';
@@ -182,6 +172,18 @@ function foodHtml(cityKey){
   +'<details class="gd-why"><summary>Por qué</summary><p>'+esc(f.why)+'</p>'+(f.hours?'<p class="gd-src">Horario: '+esc(f.hours)+'</p>':'')+'<p class="gd-src">'+esc(f.address)+'</p></details>'
   +'<div class="gd-acts"><a class="dz-btn" target="_blank" rel="noopener" href="'+mapsUrl(f)+'">📍 Ver dónde</a>'+(f.url?'<a class="dz-btn" target="_blank" rel="noopener" href="'+esc(f.url)+'">Sitio web ↗</a>':'')+'</div></div></div>').join("")+'</div><div class="dz-land">Más ideas</div>';
 }
+const PHOTO={};
+function wikiPhoto(title,img){if(!title)return;(PHOTO[title]||(PHOTO[title]=fetch("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=pageimages&piprop=thumbnail&pithumbsize=640&redirects=1&origin=*&titles="+encodeURIComponent(title)).then(r=>r.json()).then(d=>{const pg=Object.values(d.query&&d.query.pages||{}).find(p=>p.thumbnail);return pg?pg.thumbnail.source:null;}).catch(()=>null))).then(u=>{if(u&&img.isConnected){img.src=u;img.parentNode.classList.remove("noimg");}});}
+const SRC={plan:["En el plan","#2e7d4f"],video:["Video","#a86a12"],"plan+video":["Plan + video","#2a6f97"]};
+function marketsHtml(cityKey){
+ const list=(window.GUIDE_MARKETS||[]).filter(f=>f.city===cityKey);if(!list.length)return "";
+ return '<div class="dz-land">Mercados</div><div class="gd-food">'+list.map(f=>{const sb=(SRC[f.src]||SRC.video).slice();if(f.src==="plan")sb[0]=f.city==="munich"?"Plan de Múnich":"Plan familiar";if(f.src==="plan+video")sb[0]="Plan familiar + video";return '<div class="gd-place">'
+  +'<div class="gd-ph noimg"><img loading="lazy" alt="'+esc(f.name)+'" data-wiki="'+esc(f.wiki||"")+'"><span>'+esc(f.emoji)+'</span><em class="gd-badge" style="background:'+sb[1]+'">'+sb[0]+'</em></div>'
+  +'<div class="gd-pb"><b>'+esc(f.name)+'</b><small>'+esc(f.when)+'</small><p>'+esc(f.desc)+'</p>'
+  +'<p class="gd-src">📅 '+esc(f.dates)+'<br>🕘 '+esc(f.hours)+'</p>'
+  +'<details class="gd-why"><summary>Por qué ir</summary><p>'+esc(f.why)+'</p><p class="gd-src">'+esc(f.address)+'</p></details>'
+  +'<div class="gd-acts"><a class="dz-btn" target="_blank" rel="noopener" href="'+mapsUrl(f)+'">📍 Ver dónde</a>'+(f.url?'<a class="dz-btn" target="_blank" rel="noopener" href="'+esc(f.url)+'">Oficial ↗</a>':'')+'</div></div></div>';}).join("")+'</div><div class="dz-land">Consejos</div>';
+}
 function checksDone(){return CHECKS.filter((c,i)=>c[2]||state.done[i]).length;}
 function drawTiles(){
  let h='<div class="dz-note">Resumen del viaje: planes de la familia, reservas y consejos de videos. Etiquetas:<div class="gd-legend">'+Object.keys(TAGS).map(tag).join("")+'</div>Lo marcado <b>Confirmar</b> o <b>Video</b> no es dato oficial: verificar antes de depender de ello.</div><div class="gd-grid">';
@@ -199,9 +201,11 @@ function drawSection(sec){
   CHECKS.forEach((c,i)=>{h+='<div class="dz-row dz-prep"><label><input type="checkbox" data-gcheck="'+i+'"'+(c[2]||state.done[i]?" checked":"")+(c[2]?" disabled":"")+'><span>'+esc(c[0])+(c[2]?' <b style="color:#2e7d4f">· Comprado</b>':'')+'</span></label>'+(c[1]?'<a target="_blank" rel="noopener" href="'+c[1]+'">Abrir ↗</a>':'')+'</div>';});
  }else{
   if(sec[0]==="Comer y beber")h+=foodHtml(state.tab);
+  if(sec[0]==="Mercados y luces de Navidad"||sec[0]==="Mercados")h+=marketsHtml(state.tab);
   sec[1].forEach(it=>{h+=itemHtml(it);});
  }
  body.innerHTML=h;
+ body.querySelectorAll("img[data-wiki]").forEach(im=>{im.onerror=()=>im.remove();wikiPhoto(im.dataset.wiki,im);});
  body.querySelector("[data-back]").onclick=goBack;
  body.querySelectorAll("[data-gcheck]").forEach(c=>c.onchange=()=>{if(c.checked)state.done[c.dataset.gcheck]=true;else delete state.done[c.dataset.gcheck];save();draw();});
 }

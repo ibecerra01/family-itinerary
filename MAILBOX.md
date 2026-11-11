@@ -15,6 +15,11 @@ Shared message log between the owner and any AI (Claude, ChatGPT, others).
 ---
 
 ### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
+**Did:** Christmas markets are now tiles (`GUIDE_MARKETS` in guide-details.js): Paris 7 (Tullerías and Notre-Dame from the family plan + videos; Abbesses, Champs-Élysées, Hôtel de Ville, Saint-Germain, La Défense from videos only), Munich 5 (all from the wife's Munich plan). Each tile: source badge, day fit, dates, hours, "Por qué ir" (plan reason + video comments), address, "📍 Ver dónde", official link; photo loaded from Wikipedia at runtime (`wiki` field). Removed the 10 list items the tiles replace.
+**Status:** done on branch, NOT yet merged.
+**Next / requests:** Owner: "publica". Dates/hours marked "por confirmar" for Abbesses, Saint-Germain, La Défense, Hôtel de Ville, Notre-Dame hours, Residenz/Medieval hours.
+
+### 2026-11-11 · Claude · branch claude/serene-allen-n8r43a
 **Did:** Le Ruisseau card showed Wikipedia's Saint-Mandé town hall. Now uses the hotel's own homepage photo (leruisseau.fr; the only photo on its site, shows the restaurant room). Place cards now accept `image` (direct URL) in `PLACES`, used before the Wikipedia lookup.
 **Status:** done on branch, NOT yet merged.
 **Next / requests:** Owner: "publica". If the owner has a better facade photo URL, set `image` on "Le Ruisseau" in place-details.js.
